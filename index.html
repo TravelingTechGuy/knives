@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVRYw+2Vv0oDQRDGv7m7S7yDRS7gF9TCR7CxsfAt7K0sfAd9A0Hfx9In0NIn0MIn0MIn0MIn0MIn0MIn0MLH0CewsbGwshAsRE7i3fHbeAnXJJ6EHOToB0Oyc7O7v5n9Z7ZAkpNoInrA38uA7A0I0fX1daSurg6SJKGpqYmGhoZobm6mubk5WlpaYm1tjY2NDTo7O+no6KCzs5Pe3l56e3vzeS6S8Xg89Xq9FAqFisFisSSTyZDL5SgUCuRyOfL5fE0gl8v9CWQymf8C2Wz2V6Ddbv8V6Pf7fwa63e6fQ7mI9Xo9yWRSDBYV9Xp9TS6SyaTi8XhR0Y9YLFYTiEajisViRUU/YrFYTSAajSoWi9X9S8VisW8B0p8vKxaLRf7/fNAn0O126XQ6YpAr0O126XQ6YpAr0O126XQ6YlDrA/1+X7FYrO5fKh6PKxaL1f1LxeNxxeKxun+pRCKhWCxW9y+VSCT+BOI4ViwW+09fKBKJKBaL1f1LJRKKxWJ1/1KJRCI1gVgsplgs9p++UCKRUCwWq/uXSiQSisVidX/rE2AymeRyeZIkCUEQUCqVpFKpJJVKSV6v9y83P9v3+31+7vY7Y/0D/AIn3r66t6wAAAAASUVORK5CYII=">
+  <title>Knife Steel Performance</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --super-steel: #fbbf24;
+      --premium: #a78bfa;
+      --budget: #2dd4bf;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    #steel-search {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 2px solid #334155;
+      background: var(--card-bg);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    #steel-search:focus {
+      border-color: var(--premium);
+      box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+    }
+
+    .filter-hint {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      position: relative;
+      border: 1px solid #334155;
+      transition: all 0.3s ease-out;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow:
+        0 10px 30px -5px rgba(0, 0, 0, 0.5),
+        0 0 20px var(--hover-glow);
+      border-color: var(--tier-color);
+      z-index: 10;
+    }
+
+    canvas {
+      display: block;
+      max-width: 100%;
+      cursor: crosshair;
+      pointer-events: all;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .tier-super-steel {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--super-steel);
+      border: 1px solid var(--super-steel);
+    }
+
+    .tier-premium {
+      background: rgba(167, 139, 250, 0.15);
+      color: var(--premium);
+      border: 1px solid var(--premium);
+    }
+
+    .tier-budget {
+      background: rgba(45, 212, 191, 0.15);
+      color: var(--budget);
+      border: 1px solid var(--budget);
+    }
+
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Knife Steel Performance</h1>
+    <div class="search-container">
+      <input type="text" id="steel-search" placeholder="Enter names separated by commas (e.g. M390, MagnaCut, D2)...">
+      <div class="filter-hint">Tip: You can also filter by tier, like "Budget, Super Steel"</div>
+      <div class="filter-hint">
+        Try: <b>M390, MagnaCut</b> or <b>toughness > 7, corrosion > 8</b>
+      </div>
+    </div>
+  </header>
+
+  <div id="steel-grid" class="grid"></div>
+
+  <script>
+    const steelData = [
+      { "id": "14c28n", "name": "14C28N", "tier": "Budget", "toughness": 9, "corrosion": 8, "retention": 4, "sharpening": 9 },
+      { "id": "154cm", "name": "154CM", "tier": "Premium", "toughness": 4, "corrosion": 7, "retention": 5, "sharpening": 7 },
+      { "id": "420hc", "name": "420HC", "tier": "Budget", "toughness": 8, "corrosion": 8, "retention": 3, "sharpening": 10 },
+      { "id": "440c", "name": "440C", "tier": "Budget", "toughness": 4, "corrosion": 6, "retention": 4, "sharpening": 6 },
+      { "id": "8cr13mov", "name": "8Cr13MoV", "tier": "Budget", "toughness": 5, "corrosion": 5, "retention": 3, "sharpening": 9 },
+      { "id": "ar-rpm9", "name": "AR-RPM9", "tier": "Budget", "toughness": 6, "corrosion": 7, "retention": 5, "sharpening": 8 },
+      { "id": "aus10", "name": "AUS10", "tier": "Premium", "toughness": 5, "corrosion": 7, "retention": 6, "sharpening": 7 },
+      { "id": "aus8", "name": "AUS8", "tier": "Budget", "toughness": 6, "corrosion": 6, "retention": 3, "sharpening": 9 },
+      { "id": "cpm-s30v", "name": "CPM-S30V", "tier": "Premium", "toughness": 4, "corrosion": 7, "retention": 7, "sharpening": 4 },
+      { "id": "cpm-s35vn", "name": "CPM-S35VN", "tier": "Premium", "toughness": 5, "corrosion": 7, "retention": 7, "sharpening": 5 },
+      { "id": "cpm-s45vn", "name": "CPM-S45VN", "tier": "Premium", "toughness": 5, "corrosion": 8, "retention": 8, "sharpening": 4 },
+      { "id": "cpm-s90v", "name": "CPM-S90V", "tier": "Super Steel", "toughness": 3, "corrosion": 8, "retention": 10, "sharpening": 1 },
+      { "id": "cruwear", "name": "CPM-CruWear", "tier": "Premium", "toughness": 8, "corrosion": 4, "retention": 7, "sharpening": 6 },
+      { "id": "d2", "name": "D2", "tier": "Budget", "toughness": 4, "corrosion": 2, "retention": 6, "sharpening": 4 },
+      { "id": "elmax", "name": "ELMAX", "tier": "Super Steel", "toughness": 5, "corrosion": 8, "retention": 8, "sharpening": 3 },
+      { "id": "k390", "name": "K390", "tier": "Super Steel", "toughness": 6, "corrosion": 2, "retention": 10, "sharpening": 3 },
+      { "id": "lc200n", "name": "LC200N", "tier": "Premium", "toughness": 7, "corrosion": 10, "retention": 3, "sharpening": 8 },
+      { "id": "m390", "name": "M390", "tier": "Super Steel", "toughness": 3, "corrosion": 9, "retention": 9, "sharpening": 2 },
+      { "id": "magnacut", "name": "MagnaCut", "tier": "Super Steel", "toughness": 7, "corrosion": 10, "retention": 8, "sharpening": 5 },
+      { "id": "nitro-v", "name": "Nitro-V", "tier": "Budget", "toughness": 8, "corrosion": 8, "retention": 4, "sharpening": 8 },
+      { "id": "vanax", "name": "Vanax", "tier": "Super Steel", "toughness": 6, "corrosion": 10, "retention": 8, "sharpening": 5 },
+      { "id": "vg10", "name": "VG10", "tier": "Premium", "toughness": 4, "corrosion": 7, "retention": 6, "sharpening": 6 }
+    ];
+
+    const tierColors = {
+      'Super Steel': { bg: 'rgba(251, 191, 36, 0.1)', border: '#fbbf24', glow: 'rgba(251, 191, 36, 0.5)' },
+      'Premium': { bg: 'rgba(167, 139, 250, 0.1)', border: '#a78bfa', glow: 'rgba(167, 139, 250, 0.5)' },
+      'Budget': { bg: 'rgba(45, 212, 191, 0.1)', border: '#2dd4bf', glow: 'rgba(45, 212, 191, 0.5)' }
+    };
+
+    function init() {
+      const grid = document.getElementById('steel-grid');
+      const searchInput = document.getElementById('steel-search');
+
+      function renderCards(filterString = '') {
+        grid.innerHTML = '';
+
+        const searchTerms = filterString.split(',')
+          .map(term => term.trim().toLowerCase())
+          .filter(term => term !== '');
+
+        const filtered = steelData.filter(steel => {
+          if (searchTerms.length === 0) return true;
+
+          // We split terms into "Math/Tier Filters" and "Name Filters"
+          const mathFilters = searchTerms.filter(t => t.match(/[><=]/));
+          const nameOrTierFilters = searchTerms.filter(t => !t.match(/[><=]/));
+
+          // 1. Math/Tier check: ALL math conditions must be met (AND logic)
+          const matchesMath = mathFilters.every(term => {
+            const match = term.match(/(toughness|corrosion|retention|sharpening)\s*([><=])\s*(\d+)/);
+            if (match) {
+              const [_, attr, operator, value] = match;
+              const targetValue = parseInt(value);
+              const actualValue = steel[attr];
+              if (operator === '>') return actualValue > targetValue;
+              if (operator === '<') return actualValue < targetValue;
+              if (operator === '=') return actualValue === targetValue;
+            }
+            return false;
+          });
+
+          // 2. Name/Tier check: If names are provided, match ANY of them (OR logic)
+          const matchesName = nameOrTierFilters.length === 0 || nameOrTierFilters.some(term =>
+            steel.name.toLowerCase().includes(term) ||
+            steel.tier.toLowerCase().includes(term)
+          );
+
+          return matchesMath && matchesName;
+        });
+        filtered.forEach(steel => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          // This sets a CSS variable so the hover shadow matches the tier color
+          card.style.setProperty('--hover-glow', tierColors[steel.tier].border.replace('1)', '0.4)'));
+          const tierSlug = steel.tier.toLowerCase().replace(' ', '-');
+
+          card.innerHTML = `
+            <span class="badge tier-${tierSlug}">${steel.tier}</span>
+            <h2>${steel.name}</h2>
+            <canvas id="chart-${steel.id}"></canvas>
+          `;
+          grid.appendChild(card);
+
+          const ctx = document.getElementById(`chart-${steel.id}`).getContext('2d');
+          new Chart(ctx, {
+            type: 'radar',
+            data: {
+              labels: ['Toughness', 'Corrosion', 'Retention', 'Sharpening'],
+              datasets: [{
+                data: [steel.toughness, steel.corrosion, steel.retention, steel.sharpening],
+                backgroundColor: tierColors[steel.tier].bg,
+                borderColor: tierColors[steel.tier].border,
+                borderWidth: 3,
+                pointBackgroundColor: tierColors[steel.tier].border,
+                pointRadius: 5,
+                pointHoverRadius: 9,
+                pointHoverBackgroundColor: '#fff',
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              // FIX 2: Add padding so the 'Retention' node isn't touching the edge
+              layout: { padding: 15 },
+              interaction: {
+                mode: 'nearest', // Changed from index to nearest to prevent 'cross-talk'
+                intersect: false,
+              },
+              scales: {
+                r: {
+                  min: 0, max: 10,
+                  grid: { color: '#334155' },
+                  angleLines: { color: '#334155' },
+                  pointLabels: {
+                    color: '#94a3b8',
+                    font: { size: 12, weight: 'bold' },
+                    padding: 10 // Extra space for labels
+                  },
+                  ticks: { display: false }
+                }
+              },
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  enabled: true,
+                  backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                  padding: 12,
+                  // FIX 3: Force the tooltip to stay inside the canvas area
+                  displayColors: false,
+                  position: 'average'
+                }
+              }
+            }
+          });
+        });
+      }
+
+      searchInput.addEventListener('input', (e) => {
+        renderCards(e.target.value);
+      });
+
+      renderCards();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+
+</html>
