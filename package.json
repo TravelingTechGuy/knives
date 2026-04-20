@@ -10,8 +10,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "rxdb": "^17.1.0"
-  }
+  "license": "ISC"
 }
