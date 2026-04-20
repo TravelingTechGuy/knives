@@ -2,6 +2,7 @@
   { "id": "1095", "name": "1095", "tier": "Budget", "toughness": 7, "corrosion": 1, "retention": 3, "sharpening": 9 },
   { "id": "10cr15mov", "name": "10Cr15MoV", "tier": "Premium", "toughness": 4, "corrosion": 7, "retention": 6, "sharpening": 6 },
   { "id": "12c27", "name": "12C27", "tier": "Budget", "toughness": 6, "corrosion": 7, "retention": 3, "sharpening": 9 },
+  { "id": "140cr", "name": "140Cr", "tier": "Premium", "toughness": 5, "corrosion": 7, "retention": 7, "sharpening": 5 },
   { "id": "14c28n", "name": "14C28N", "tier": "Budget", "toughness": 9, "corrosion": 8, "retention": 4, "sharpening": 9 },
   { "id": "154cm", "name": "154CM", "tier": "Premium", "toughness": 4, "corrosion": 7, "retention": 5, "sharpening": 7 },
   { "id": "420hc", "name": "420HC", "tier": "Budget", "toughness": 8, "corrosion": 8, "retention": 3, "sharpening": 10 },
@@ -31,6 +32,7 @@
   { "id": "m390", "name": "M390", "tier": "Super Steel", "toughness": 3, "corrosion": 9, "retention": 9, "sharpening": 2 },
   { "id": "magnacut", "name": "MagnaCut", "tier": "Super Steel", "toughness": 7, "corrosion": 10, "retention": 8, "sharpening": 5 },
   { "id": "maxamet", "name": "Maxamet", "tier": "Super Steel", "toughness": 2, "corrosion": 2, "retention": 10, "sharpening": 1 },
+  { "id": "n690", "name": "N690", "tier": "Premium", "toughness": 4, "corrosion": 8, "retention": 5, "sharpening": 7 },
   { "id": "nitro-v", "name": "Nitro-V", "tier": "Budget", "toughness": 8, "corrosion": 8, "retention": 4, "sharpening": 8 },
   { "id": "vanax", "name": "Vanax", "tier": "Super Steel", "toughness": 6, "corrosion": 10, "retention": 8, "sharpening": 5 },
   { "id": "vg10", "name": "VG10", "tier": "Premium", "toughness": 4, "corrosion": 7, "retention": 6, "sharpening": 6 }
