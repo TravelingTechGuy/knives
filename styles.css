@@ -20,6 +20,13 @@ header {
   margin-bottom: 40px;
 }
 
+.title-icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+
 .search-container {
   max-width: 600px;
   margin: 20px auto;
