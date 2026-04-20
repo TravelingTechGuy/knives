@@ -140,6 +140,31 @@
       font-size: 1.4rem;
       font-weight: 600;
     }
+
+    .clear-btn {
+      position: absolute;
+      right: 5px;
+      top: 12px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      display: none;
+      transition: all 0.2s ease;
+      opacity: 0.7;
+    }
+
+    .clear-btn:hover {
+      color: #f8fafc;
+      opacity: 1;
+    }
+
+    #steel-search:not(:placeholder-shown) + .clear-btn {
+      display: block;
+    }
   </style>
 </head>
 
@@ -149,6 +174,7 @@
     <h1>Knife Steel Performance</h1>
     <div class="search-container">
       <input type="text" id="steel-search" placeholder="Enter names separated by commas (e.g. M390, MagnaCut, D2)...">
+      <button id="clear-search" class="clear-btn" title="Clear filter">×</button>
       <div class="filter-hint">Tip: You can also filter by tier, like "Budget, Super Steel"</div>
       <div class="filter-hint">
         Try: <b>M390, MagnaCut</b> or <b>toughness > 7, corrosion > 8</b>
@@ -171,6 +197,7 @@
     function init() {
       const grid = document.getElementById('steel-grid');
       const searchInput = document.getElementById('steel-search');
+      const clearButton = document.getElementById('clear-search');
 
       function renderCards(filterString = '') {
         grid.innerHTML = '';
@@ -278,6 +305,12 @@
 
       searchInput.addEventListener('input', (e) => {
         renderCards(e.target.value);
+      });
+
+      clearButton.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+        renderCards();
       });
 
       renderCards();
