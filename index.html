@@ -28,11 +28,12 @@
     </div>
   </header>
 
+  <div id="database-info" class="database-info"></div>
+
   <div id="steel-grid" class="grid"></div>
 
   <script type="module">
     import steelData from './steels.json' with { type: 'json' };
-    console.log(`There are ${steelData.length} steels available.`);
 
     const tierColors = {
       'Super Steel': { bg: 'rgba(251, 191, 36, 0.1)', border: '#fbbf24', glow: 'rgba(251, 191, 36, 0.5)' },
@@ -44,6 +45,8 @@
       const grid = document.getElementById('steel-grid');
       const searchInput = document.getElementById('steel-search');
       const clearButton = document.getElementById('clear-search');
+      const databaseInfo = document.getElementById('database-info');
+      databaseInfo.textContent = `The database currently contains ${steelData.length} steels`;
 
       function renderCards(filterString = '') {
         grid.innerHTML = '';
