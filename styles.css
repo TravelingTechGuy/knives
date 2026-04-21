@@ -272,11 +272,21 @@ h2 {
 .process-text {
   font-size: 0.85rem;
   line-height: 1.5;
-  color: #94a3b8;
+  /* Use the tier color for the text */
+  color: var(--tier-color, #94a3b8);
   background: rgba(0, 0, 0, 0.2);
   padding: 12px;
   border-radius: 8px;
-  border-left: 3px solid var(--premium);
+  /* Match the border to the tier color as well */
+  border-left: 3px solid var(--tier-color);
+}
+
+.process-text strong {
+  /* Make the "Process:" label slightly brighter for contrast */
+  filter: brightness(1.2);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 /* Custom Tooltip Container */
