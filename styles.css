@@ -172,3 +172,161 @@ h2 {
 #steel-search:not(:placeholder-shown) + .clear-btn {
   display: block;
 }
+
+/* Metallurgy View Toggle */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Move the badge inside the header for better alignment */
+.card .badge {
+  position: static; /* Overriding your absolute positioning */
+}
+
+.info-btn {
+  background: rgba(255, 255, 255, 0.05);
+  /* Use the dynamic tier color for the border */
+  border: 1px solid var(--tier-color, rgba(255, 255, 255, 0.1));
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 6px;
+  /* Use the dynamic tier color for the icon */
+  color: var(--tier-color, #94a3b8);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Update hover state to use the tier color */
+.info-btn:hover {
+  background: color-mix(in srgb, var(--tier-color), transparent 85%) !important;
+  color: var(--tier-color) !important;
+  border-color: var(--tier-color) !important;
+  box-shadow: 0 0 10px var(--tier-color);
+}
+
+/* Update the active state (when tray is open) */
+.info-btn[data-active="true"] {
+  background: color-mix(in srgb, var(--tier-color), transparent 90%);
+  color: var(--tier-color);
+  border-color: var(--tier-color);
+}
+
+/* Update the tooltip arrow to match the tier color */
+.info-btn::before {
+  /* This makes the tiny arrow point color match the tier */
+  border-color: var(--tier-color) transparent transparent transparent;
+}
+
+.metallurgy-view {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0;
+  border-top: 1px solid transparent;
+}
+
+.metallurgy-view.active {
+  max-height: 500px; /* High enough to fit content */
+  opacity: 1;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.composition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.comp-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comp-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #64748b;
+  display: block;
+  text-transform: uppercase;
+}
+
+.comp-val {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.process-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid var(--premium);
+}
+
+/* Custom Tooltip Container */
+.info-btn {
+  position: relative; /* Required for absolute positioning of the tooltip */
+}
+
+/* Tooltip Text Bubble */
+.info-btn::after {
+  content: attr(data-tooltip); /* Pulls text from a data-attribute */
+  position: absolute;
+  bottom: 125%; /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(15, 23, 42, 0.95); /* Matches your chart tooltip */
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Tooltip Arrow */
+.info-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.95) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Show on Hover */
+.info-btn:hover::after,
+.info-btn:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
