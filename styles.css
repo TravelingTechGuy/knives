@@ -83,6 +83,7 @@ header {
   border: 1px solid #334155;
   transition: all 0.3s ease-out;
   animation: fadeIn 0.4s ease-out;
+  overflow: visible !important;
 }
 
 .card:hover {
@@ -253,6 +254,7 @@ h2 {
   border-radius: 6px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
 }
 
 .comp-label {
@@ -290,52 +292,53 @@ h2 {
 }
 
 /* Custom Tooltip Container */
-.info-btn {
-  position: relative; /* Required for absolute positioning of the tooltip */
+.info-btn, .element-tooltip {
+  position: relative;
 }
 
-/* Tooltip Text Bubble */
-.info-btn::after {
-  content: attr(data-tooltip); /* Pulls text from a data-attribute */
+/* Tooltip Text Bubble - Moved to TOP: 125% to show BELOW */
+.info-btn::after, .element-tooltip::after {
+  content: attr(data-tooltip);
   position: absolute;
-  bottom: 125%; /* Position above the button */
+  top: 125%; /* Changed from bottom to top */
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: rgba(15, 23, 42, 0.95); /* Matches your chart tooltip */
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(15, 23, 42, 0.98);
   color: #fff;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 6px 10px;
+  border-radius: 4px;
   font-size: 0.75rem;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--tier-color); /* Thematic border */
   pointer-events: none;
-  z-index: 100;
+  z-index: 999; /* Force it to the front */
 }
 
-/* Tooltip Arrow */
-.info-btn::before {
+/* Tooltip Arrow - Flipped to point UP */
+.info-btn::before, .element-tooltip::before {
   content: '';
   position: absolute;
-  bottom: 110%;
+  top: 110%; /* Changed from bottom to top */
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  border-width: 6px;
+  transform: translateX(-50%) translateY(-10px);
+  border-width: 5px;
   border-style: solid;
-  border-color: rgba(15, 23, 42, 0.95) transparent transparent transparent;
+  /* Arrow now points UP to the button */
+  border-color: transparent transparent rgba(15, 23, 42, 0.95) transparent;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
   pointer-events: none;
-  z-index: 100;
+  z-index: 999;
 }
 
-/* Show on Hover */
-.info-btn:hover::after,
-.info-btn:hover::before {
+/* Hover state animation */
+.info-btn:hover::after, .info-btn:hover::before,
+.element-tooltip:hover::after, .element-tooltip:hover::before {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);

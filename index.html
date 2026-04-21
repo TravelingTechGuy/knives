@@ -41,6 +41,19 @@
       'Budget': { bg: 'rgba(45, 212, 191, 0.1)', border: '#2dd4bf', glow: 'rgba(45, 212, 191, 0.5)' }
     };
 
+    const elementNames = {
+      "C": "Carbon",
+      "Cr": "Chromium",
+      "V": "Vanadium",
+      "Mo": "Molybdenum",
+      "N": "Nitrogen",
+      "Nb": "Niobium",
+      "Co": "Cobalt",
+      "W": "Tungsten",
+      "Mn": "Manganese",
+      "Si": "Silicon"
+    };
+
     function init() {
       const grid = document.getElementById('steel-grid');
       const searchInput = document.getElementById('steel-search');
@@ -115,7 +128,7 @@
             <div class="metallurgy-view">
               <div class="composition-grid">
                 ${sortedComposition.map(([element, value]) => `
-                  <div class="comp-item">
+                  <div class="comp-item element-tooltip" data-tooltip="${elementNames[element] || element}">
                     <span class="comp-label">${element}</span>
                     <span class="comp-val">${value}%</span>
                   </div>
