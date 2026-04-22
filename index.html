@@ -19,11 +19,18 @@
       <img src="favicon.svg" alt="Knife icon" class="title-icon">Knife Steel Performance
     </h1>
     <div class="search-container">
-      <input type="text" id="steel-search" placeholder="Enter names separated by commas (e.g. M390, MagnaCut, D2)...">
-      <button id="clear-search" class="clear-btn" title="Clear filter">×</button>
-      <div class="filter-hint">Tip: You can also filter by tier, like "Budget, Super Steel"</div>
-      <div class="filter-hint">
-        Try: <b>M390, MagnaCut</b> or <b>toughness > 7, corrosion > 8</b>
+      <div class="search-wrapper">
+        <input type="text" id="steel-search" placeholder="Search steels (e.g. M390, toughness > 7)...">
+        <button id="clear-search" class="clear-btn" title="Clear search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="filter-hints">
+        <div class="filter-hint"><b>M390, MagnaCut</b> or <b>toughness > 7, corrosion > 8</b></div>
       </div>
     </div>
   </header>
@@ -78,15 +85,33 @@
 
     function init() {
       const grid = document.getElementById('steel-grid');
-      const searchInput = document.getElementById('steel-search');
-      const clearButton = document.getElementById('clear-search');
       const databaseInfo = document.getElementById('database-info');
       const sortSelect = document.getElementById('sort-select');
+      const searchInput = document.getElementById('steel-search');
+      const clearButton = document.getElementById('clear-search');
+
+      function toggleClearButton() {
+        clearButton.style.display = searchInput.value ? 'flex' : 'none';
+      }
+
+      // event listeners
+      searchInput.addEventListener('input', (e) => {
+        toggleClearButton();
+        renderCards(e.target.value);
+      });
+
+      clearButton.addEventListener('click', () => {
+        searchInput.value = '';
+        toggleClearButton();
+        searchInput.focus();
+        renderCards();
+      });
 
       sortSelect.addEventListener('change', () => {
         renderCards(searchInput.value);
       });
 
+      // Main rendering function
       function renderCards(filterString = '') {
         const sortBy = document.getElementById('sort-select').value;
         grid.innerHTML = '';
@@ -245,15 +270,8 @@
         });
       }
 
-      searchInput.addEventListener('input', (e) => {
-        renderCards(e.target.value);
-      });
-
-      clearButton.addEventListener('click', () => {
-        searchInput.value = '';
-        searchInput.focus();
-        renderCards();
-      });
+      // Run once on load
+      toggleClearButton();
 
       renderCards();
     }

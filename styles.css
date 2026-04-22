@@ -20,6 +20,12 @@ header {
   margin-bottom: 20px;
 }
 
+h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 .title-icon {
   width: 1.5em;
   height: 1.5em;
@@ -36,6 +42,7 @@ header {
   margin-bottom: 15px;
 }
 
+/* Sort Dropdown */
 .sort-container {
   display: flex;
   align-items: center;
@@ -57,34 +64,78 @@ header {
   border-color: var(--premium);
 }
 
+/* Search box */
 .search-container {
-  max-width: 600px;
-  margin: 20px auto;
-  position: relative;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  padding: 0 15px; /* Prevents edge-touching on mobile */
 }
 
-#steel-search {
-  width: 100%;
-  padding: 14px 20px;
-  border-radius: 12px;
-  border: 2px solid #334155;
+.search-wrapper {
+  display: flex;
+  align-items: center;
   background: var(--card-bg);
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 4px 8px 4px 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-#steel-search:focus {
+.search-wrapper:focus-within {
   border-color: var(--premium);
   box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
 }
 
+#steel-search {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1rem;
+  padding: 12px 0;
+  outline: none;
+  min-width: 0; /* Important for flex-shrink on mobile */
+}
+
+.clear-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #94a3b8;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.clear-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.filter-hints {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .filter-hint {
   font-size: 0.8rem;
-  color: #94a3b8;
-  margin-top: 8px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  header h1 { font-size: 1.5rem; }
+  .search-wrapper { padding: 2px 6px 2px 12px; }
+  #steel-search { font-size: 0.9rem; }
+  .database-info { flex-direction: column; gap: 10px; }
 }
 
 .grid {
@@ -161,37 +212,6 @@ canvas {
   background: rgba(45, 212, 191, 0.15);
   color: var(--budget);
   border: 1px solid var(--budget);
-}
-
-h2 {
-  margin: 0 0 15px 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.clear-btn {
-  position: absolute;
-  right: 5px;
-  top: 12px;
-  background: transparent;
-  border: none;
-  color: #94a3b8;
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0;
-  display: none;
-  transition: all 0.2s ease;
-  opacity: 0.7;
-}
-
-.clear-btn:hover {
-  color: #f8fafc;
-  opacity: 1;
-}
-
-#steel-search:not(:placeholder-shown) + .clear-btn {
-  display: block;
 }
 
 /* Metallurgy View Toggle */
