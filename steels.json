@@ -286,22 +286,22 @@
     "process": "Powder Metallurgy by Crucible. A high-speed tool steel with very high Tungsten and Vanadium. It is a favorite for competitive cutting due to its impact resistance."
   },
   {
-    "id": "s110v",
-    "name": "CPM-S110V",
+    "id": "s10v",
+    "name": "CPM S10V",
     "tier": "Super Steel",
-    "toughness": 2,
-    "corrosion": 8,
+    "toughness": 4,
+    "corrosion": 3,
     "retention": 10,
-    "sharpening": 1,
+    "sharpening": 2,
     "composition": {
-      "C": 2.80,
-      "Cr": 15.25,
-      "Mo": 2.25,
-      "V": 9.0,
-      "Nb": 3.0,
-      "Co": 2.5
+      "C": 2.45,
+      "Cr": 5.25,
+      "V": 9.75,
+      "Mo": 1.30,
+      "Mn": 0.50,
+      "Si": 0.90
     },
-    "process": "Powder Metallurgy by Crucible. One of the most alloy-rich steels available. It uses Niobium and Vanadium to create an edge that lasts almost indefinitely."
+    "process": "Crucible Particle Metallurgy (CPM) process. Designed for extreme wear resistance in industrial tooling and high-end custom cutting tools."
   },
   {
     "id": "cpm-s30v",
@@ -369,6 +369,24 @@
       "Mo": 1.0
     },
     "process": "Powder Metallurgy by Crucible. High vanadium content creates extremely hard carbides. It is considered one of the kings of long-term edge retention."
+  },
+  {
+    "id": "s110v",
+    "name": "CPM-S110V",
+    "tier": "Super Steel",
+    "toughness": 2,
+    "corrosion": 8,
+    "retention": 10,
+    "sharpening": 1,
+    "composition": {
+      "C": 2.80,
+      "Cr": 15.25,
+      "Mo": 2.25,
+      "V": 9.0,
+      "Nb": 3.0,
+      "Co": 2.5
+    },
+    "process": "Powder Metallurgy by Crucible. One of the most alloy-rich steels available. It uses Niobium and Vanadium to create an edge that lasts almost indefinitely."
   },
   {
     "id": "cts-xhp",

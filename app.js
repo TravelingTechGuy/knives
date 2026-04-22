@@ -25,7 +25,8 @@ const elementNames = {
   "Si": "Silicon",
   "Ni": "Nickel",
   "P": "Phosphorus",
-  "S": "Sulfur"
+  "S": "Sulfur",
+  "Si": "Silicon"
 };
 
 function init() {
