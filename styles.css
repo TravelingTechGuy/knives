@@ -26,6 +26,13 @@ h2 {
   font-weight: 600;
 }
 
+canvas {
+  display: block;
+  max-width: 100%;
+  cursor: crosshair;
+  pointer-events: all;
+}
+
 .title-icon {
   width: 1.5em;
   height: 1.5em;
@@ -153,10 +160,11 @@ h2 {
   border-radius: 16px;
   padding: 20px;
   position: relative;
-  border: 1px solid #334155;
-  transition: all 0.3s ease-out;
-  animation: fadeIn 0.4s ease-out;
-  overflow: visible !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Ensure height is NOT fixed */
+  height: auto;
+  /* Smoothly transition the card size change */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
@@ -166,13 +174,6 @@ h2 {
     0 0 20px var(--hover-glow);
   border-color: var(--tier-color);
   z-index: 10;
-}
-
-canvas {
-  display: block;
-  max-width: 100%;
-  cursor: crosshair;
-  pointer-events: all;
 }
 
 @keyframes fadeIn {
