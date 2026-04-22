@@ -28,7 +28,20 @@
     </div>
   </header>
 
-  <div id="database-info" class="database-info"></div>
+  <div id="database-info" class="database-info">
+    <span id="steel-count"></span>
+    <div class="sort-container">
+      <label for="sort-select">Sort by:</label>
+      <select id="sort-select">
+        <option value="name">Name</option>
+        <option value="tier">Budget Tier</option>
+        <option value="corrosion">Corrosion Resistance</option>
+        <option value="retention">Edge Retention</option>
+        <option value="sharpening">Sharpening Ease</option>
+        <option value="toughness">Toughness</option>
+      </select>
+    </div>
+  </div>
 
   <div id="steel-grid" class="grid"></div>
 
@@ -41,6 +54,12 @@
       'Budget': { bg: 'rgba(45, 212, 191, 0.1)', border: '#2dd4bf', glow: 'rgba(45, 212, 191, 0.5)' }
     };
 
+    const tierPriority = {
+      "Super Steel": 1,
+      "Premium": 2,
+      "Budget": 3
+    };
+
     const elementNames = {
       "C": "Carbon",
       "Cr": "Chromium",
@@ -51,7 +70,10 @@
       "Co": "Cobalt",
       "W": "Tungsten",
       "Mn": "Manganese",
-      "Si": "Silicon"
+      "Si": "Silicon",
+      "Ni": "Nickel",
+      "P": "Phosphorus",
+      "S": "Sulfur"
     };
 
     function init() {
@@ -59,9 +81,14 @@
       const searchInput = document.getElementById('steel-search');
       const clearButton = document.getElementById('clear-search');
       const databaseInfo = document.getElementById('database-info');
-      databaseInfo.textContent = `The database currently contains ${steelData.length} steels`;
+      const sortSelect = document.getElementById('sort-select');
+
+      sortSelect.addEventListener('change', () => {
+        renderCards(searchInput.value);
+      });
 
       function renderCards(filterString = '') {
+        const sortBy = document.getElementById('sort-select').value;
         grid.innerHTML = '';
 
         const searchTerms = filterString.split(',')
@@ -94,6 +121,21 @@
 
           return matchesMath && matchesName;
         });
+
+        // Sorting logic
+        filtered.sort((a, b) => {
+          if (sortBy === 'name') {
+            return a.name.localeCompare(b.name);
+          } else if (sortBy === 'tier') {
+            return tierPriority[a.tier] - tierPriority[b.tier] || a.name.localeCompare(b.name);
+          } else {
+            // Numerical sorts (toughness, corrosion, etc.) - Descending (highest first)
+            return b[sortBy] - a[sortBy] || a.name.localeCompare(b.name);
+          }
+        });
+
+        // Update count display
+        document.getElementById('steel-count').innerText = `Total Steels: ${filtered.length}`;
 
         filtered.forEach(steel => {
           const card = document.createElement('div');

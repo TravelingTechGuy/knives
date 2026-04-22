@@ -17,7 +17,7 @@ body {
 
 header {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .title-icon {
@@ -28,13 +28,33 @@ header {
 }
 
 .database-info {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #cbd5e1;
-  margin-bottom: 20px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#sort-select {
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+}
+
+#sort-select:focus {
+  border-color: var(--premium);
 }
 
 .search-container {
