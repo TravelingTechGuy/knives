@@ -196,7 +196,7 @@ const handleEvents = () => {
   };
 
   // event listeners
-  searchInput.addEventListener('input', (e) => {
+  searchInput.addEventListener('input', e => {
     toggleClearButton();
     renderCards(e.target.value);
   });
