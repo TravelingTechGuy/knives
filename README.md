@@ -16,6 +16,7 @@ The search box supports multiple filtering options:
 ### Basic Name/Tier Filtering
 - Enter steel names separated by commas: `M390, MagnaCut, D2`
 - Filter by tier: `Budget, Super Steel`
+- Notice that `Total Steels` label will reflect the number of steels left post filtering (and total steels available in the database when no filters are applied)
 
 ### Advanced Attribute Filtering
 Use mathematical operators to filter by specific properties:
@@ -32,10 +33,13 @@ You can combine multiple filters using commas:
 ### Clear Filter
 - Click the × button that appears in the search box when text is entered to clear the filter and show all steels
 
+### Sorting
+- Use the sorting dropdown to sort the steels by name, tier, or attribute. You can combine the sort with the filter
+
 ## Running the Application
 
-1. **Simple Method**: Open `index.html` directly in your web browser
-2. **Server Method** (recommended for full functionality):
+1. Clone the repo
+2. Run a local server in the cloned folder:
    ```bash
    python3 -m http.server 8080
    ```
@@ -43,7 +47,7 @@ You can combine multiple filters using commas:
    ```bash
    npm run serve
    ```
-   Then open `http://localhost:8080` in your browser
+3. Open `http://localhost:8080` in your browser
 
 ## Technologies Used
 
