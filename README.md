@@ -39,6 +39,9 @@ You can combine multiple filters using commas:
 ## Running the Application
 
 1. Clone the repo
+   ```bash
+   git clone https://github.com/TravelingTechGuy/knives.git
+   ```
 2. Run a local server in the cloned folder:
    ```bash
    python3 -m http.server 8080
@@ -47,7 +50,7 @@ You can combine multiple filters using commas:
    ```bash
    npm run serve
    ```
-3. Open `http://localhost:8080` in your browser
+3. Open [`http://localhost:8080`](http://localhost:8080) in your browser
 
 ## Technologies Used
 
