@@ -1,4 +1,4 @@
-# Knife Steel Performance
+# <img src="favicon.svg" width="18" height="18" style="vertical-align:middle; margin-right:0.35rem;" alt="favicon" /> Knife Steel Performance
 
 A web application for visualizing and comparing the performance characteristics of various knife steels. This app displays radar charts showing toughness, corrosion resistance, edge retention, and sharpening ease for different steel types.
 
