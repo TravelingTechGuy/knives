@@ -22,7 +22,6 @@ const elementNames = {
   "Co": "Cobalt",
   "W": "Tungsten",
   "Mn": "Manganese",
-  "Si": "Silicon",
   "Ni": "Nickel",
   "P": "Phosphorus",
   "S": "Sulfur",
