@@ -46,7 +46,11 @@ You can combine multiple filters using commas:
    ```bash
    python3 -m http.server 8080
    ```
-   or
+   If you don't have Python3 installed on your system, use:
+   ```bash
+   npx serve -l 8080
+   ```
+   or use the shortcut:
    ```bash
    npm run serve
    ```
