@@ -407,6 +407,25 @@
     "process": "Powder Metallurgy by Crucible. One of the most alloy-rich steels available. It uses Niobium and Vanadium to create an edge that lasts almost indefinitely."
   },
   {
+    "id": "cts-bd1n",
+    "name": "CTS BD1N",
+    "tier": "Budget",
+    "toughness": 5,
+    "corrosion": 8,
+    "retention": 5,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.90,
+      "Cr": 15.50,
+      "N": 0.12,
+      "Mn": 0.60,
+      "Si": 0.35,
+      "Mo": 0.30,
+      "V": 0.10
+    },
+    "process": "Vacuum Melted stainless steel by Carpenter Technology. The 'N' signifies the addition of Nitrogen, which increases hardness and corrosion resistance without making the steel brittle."
+  },
+  {
     "id": "cts-xhp",
     "name": "CTS-XHP",
     "tier": "Premium",
