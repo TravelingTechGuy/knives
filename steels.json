@@ -126,6 +126,26 @@
     "process": "Ingot Metallurgy. The classic 'high-end' steel of the 20th century. It features large chromium carbides that provide good wear resistance but lower toughness."
   },
   {
+    "id": "7cr17mov",
+    "name": "7Cr17MoV",
+    "tier": "Budget",
+    "toughness": 6,
+    "corrosion": 8,
+    "retention": 3,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.70,
+      "Cr": 17.00,
+      "Mn": 1.00,
+      "Si": 0.60,
+      "Mo": 0.75,
+      "V": 0.15,
+      "P": 0.04,
+      "S": 0.03
+    },
+    "process": "A high-chromium stainless steel produced conventionally. The addition of Molybdenum and Vanadium increases its hardness and edge retention compared to standard 7Cr series steels."
+  },
+  {
     "id": "8cr13mov",
     "name": "8Cr13MoV",
     "tier": "Budget",
