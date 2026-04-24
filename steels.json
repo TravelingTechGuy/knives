@@ -102,11 +102,11 @@
     "retention": 3,
     "sharpening": 10,
     "composition": {
-        "C": 0.45,
-        "Cr": 13.0,
-        "V": 0.3,
-        "Mn": 0.8,
-        "Si": 1.0
+      "C": 0.45,
+      "Cr": 13.0,
+      "V": 0.3,
+      "Mn": 0.8,
+      "Si": 1.0
     },
     "process": "Ingot Metallurgy. A high-carbon version of 420 stainless; when heat-treated correctly (famous by Buck Knives), it is very tough and easy to maintain."
   },
@@ -584,6 +584,25 @@
       "V": 0.07
     },
     "process": "Ingot Metallurgy. An evolution of AEB-L that adds Nitrogen and Vanadium to improve corrosion resistance and edge stability."
+  },
+  {
+    "id": "nitro-x7",
+    "name": "Nitro-X7",
+    "tier": "Premium",
+    "toughness": 7,
+    "corrosion": 8,
+    "retention": 7,
+    "sharpening": 6,
+    "composition": {
+      "C": 0.70,
+      "Cr": 15.50,
+      "N": 0.16,
+      "Mo": 0.60,
+      "Mn": 0.55,
+      "Si": 0.40,
+      "V": 0.15
+    },
+    "process": "A high-tech nitrogen-alloyed stainless steel by Buderus Edelstahl. It utilizes a fine-grained 'Nitro-Concept' to achieve edge stability and hardness (up to 64 HRC) that rivals powder metallurgy steels without the PM price tag."
   },
   {
     "id": "vanax",
