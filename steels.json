@@ -252,6 +252,24 @@
     "process": "Powder Metallurgy by Crucible. The American version of M390. Extremely high chromium and vanadium content for massive wear resistance and rust proofing."
   },
   {
+    "id": "cpm-3v",
+    "name": "CPM-3V",
+    "tier": "Premium",
+    "toughness": 10,
+    "corrosion": 4,
+    "retention": 6,
+    "sharpening": 5,
+    "composition": {
+      "C": 0.80,
+      "Cr": 7.50,
+      "V": 2.75,
+      "Mo": 1.30,
+      "Mn": 0.40,
+      "Si": 0.90
+    },
+    "process": "Crucible Particle Metallurgy (CPM) tool steel designed to provide maximum resistance to breakage and chipping. It approaches the impact toughness of S7 shock steel while maintaining wear resistance similar to D2."
+  },
+  {
     "id": "cruwear",
     "name": "CPM-CruWear",
     "tier": "Premium",
