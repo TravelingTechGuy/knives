@@ -145,9 +145,17 @@ const renderCards = () => {
 
   // 2. Sort Logic
   filtered.sort((a, b) => {
-    if (sortBy === 'name') return a.name.localeCompare(b.name);
-    if (sortBy === 'tier') return tierPriority[a.tier] - tierPriority[b.tier] || a.name.localeCompare(b.name);
-    return b[sortBy] - a[sortBy] || a.name.localeCompare(b.name);
+    if (sortBy === 'name')
+      return a.name.localeCompare(b.name, undefined, {
+        numeric: true,
+        sensitivity: 'base'
+    });
+    if (sortBy === 'tier')
+      return tierPriority[a.tier] - tierPriority[b.tier] || a.name.localeCompare(b.name);
+    return b[sortBy] - a[sortBy] || a.name.localeCompare(b.name, undefined, {
+      numeric: true,
+      sensitivity: 'base'
+    })
   });
 
   // 3. Render Logic
