@@ -14,6 +14,55 @@
     "process": "Traditional Ingot Metallurgy. A basic, non-stainless high-carbon steel known for its simplicity and ability to take a very keen edge."
   },
   {
+    "id": "5160",
+    "name": "5160",
+    "tier": "Budget",
+    "toughness": 9,
+    "corrosion": 2,
+    "retention": 3,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.60,
+      "Cr": 0.80,
+      "Mn": 0.85,
+      "Si": 0.25
+    },
+    "process": "Ingot Metallurgy. A legendary high-carbon chromium spring steel. It is world-renowned for its extreme fatigue resistance and impact toughness, making it the standard choice for functional swords and heavy-duty choppers."
+  },
+  {
+    "id": "52100",
+    "name": "52100",
+    "tier": "Budget",
+    "toughness": 8,
+    "corrosion": 2,
+    "retention": 5,
+    "sharpening": 8,
+    "composition": {
+      "C": 1.00,
+      "Cr": 1.50,
+      "Mn": 0.35,
+      "Si": 0.25
+    },
+    "process": "Ingot Metallurgy. Originally designed for industrial ball bearings, it is a deep-hardening steel with a very fine grain structure, allowing for extreme sharpness and high toughness for a carbon steel."
+  },
+  {
+    "id": "8670",
+    "name": "8670",
+    "tier": "Budget",
+    "toughness": 10,
+    "corrosion": 3,
+    "retention": 4,
+    "sharpening": 8,
+    "composition": {
+      "C": 0.70,
+      "Ni": 0.85,
+      "Cr": 0.50,
+      "Mn": 0.50,
+      "Si": 0.25
+    },
+    "process": "Ingot Metallurgy. Originally used for giant industrial saw blades, 8670 is a nickel-chromium alloy that provides toughness levels exceeding almost any other steel. It is highly forgiving in heat treatment and nearly impossible to snap under normal use."
+  },
+  {
     "id": "10cr15mov",
     "name": "10Cr15MoV",
     "tier": "Premium",
@@ -162,6 +211,22 @@
     "process": "Ingot Metallurgy. A prolific Chinese budget steel similar to AUS-8. It offers a balanced performance for everyday light tasks."
   },
   {
+    "id": "80crv2",
+    "name": "80CrV2",
+    "tier": "Budget",
+    "toughness": 9,
+    "corrosion": 2,
+    "retention": 4,
+    "sharpening": 8,
+    "composition": {
+      "C": 0.80,
+      "Cr": 0.50,
+      "V": 0.15,
+      "Mn": 0.40
+    },
+    "process": "Ingot Metallurgy. Often referred to as 'Swedish Saw Steel,' it is a high-carbon alloy that offers extreme toughness and ease of heat treatment, making it a favorite for custom makers of hard-use blades."
+  },
+  {
     "id": "9cr18mov",
     "name": "9Cr18MoV",
     "tier": "Budget",
@@ -176,6 +241,24 @@
       "V": 0.1
     },
     "process": "Ingot Metallurgy. Essentially a Chinese version of 440C with slightly better corrosion resistance due to the high Chromium content."
+  },
+  {
+    "id": "a2",
+    "name": "A2",
+    "tier": "Budget",
+    "toughness": 8,
+    "corrosion": 3,
+    "retention": 5,
+    "sharpening": 7,
+    "composition": {
+      "C": 1.00,
+      "Cr": 5.00,
+      "Mo": 1.00,
+      "V": 0.25,
+      "Mn": 0.50,
+      "Si": 0.30
+    },
+    "process": "Ingot Metallurgy. An air-hardening cold-work tool steel. It offers a significant increase in toughness over D2 and 1095 while maintaining a very respectable edge, making it a favorite for bushcraft and field knives."
   },
   {
     "id": "aeb-l",
@@ -209,6 +292,21 @@
     "process": "Powder Metallurgy. A unique budget PM steel developed for Artisan Cutlery. It provides the clean structure of powder steel at an entry-level price point."
   },
   {
+    "id": "aus8",
+    "name": "AUS8",
+    "tier": "Budget",
+    "toughness": 6,
+    "corrosion": 6,
+    "retention": 3,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.75,
+      "Cr": 14.0,
+      "V": 0.2
+    },
+    "process": "Ingot Metallurgy by Aichi. A time-tested Japanese steel known for taking a very fine edge very quickly; common in high-quality budget folders."
+  },
+   {
     "id": "aus10",
     "name": "AUS10",
     "tier": "Premium",
@@ -223,21 +321,6 @@
       "Mo": 0.2
     },
     "process": "Ingot Metallurgy by Aichi. A Japanese stainless steel that competes with 440C and 154CM, offering a slightly finer grain and better sharpenability."
-  },
-  {
-    "id": "aus8",
-    "name": "AUS8",
-    "tier": "Budget",
-    "toughness": 6,
-    "corrosion": 6,
-    "retention": 3,
-    "sharpening": 9,
-    "composition": {
-      "C": 0.75,
-      "Cr": 14.0,
-      "V": 0.2
-    },
-    "process": "Ingot Metallurgy by Aichi. A time-tested Japanese steel known for taking a very fine edge very quickly; common in high-quality budget folders."
   },
   {
     "id": "cpm-154",
@@ -679,6 +762,22 @@
       "V": 0.15
     },
     "process": "A high-tech nitrogen-alloyed stainless steel by Buderus Edelstahl. It utilizes a fine-grained 'Nitro-Concept' to achieve edge stability and hardness (up to 64 HRC) that rivals powder metallurgy steels without the PM price tag."
+  },
+  {
+    "id": "sg2",
+    "name": "SG2 / R2",
+    "tier": "Super Steel",
+    "toughness": 4,
+    "corrosion": 8,
+    "retention": 8,
+    "sharpening": 5,
+    "composition": {
+      "C": 1.35,
+      "Cr": 15.0,
+      "Mo": 3.0,
+      "V": 2.0
+    },
+    "process": "Powder Metallurgy by Takefu Special Steel. A high-carbon stainless steel that is the benchmark for high-end Japanese kitchen knives, offering a refined grain structure and exceptional edge life."
   },
   {
     "id": "vanax",
