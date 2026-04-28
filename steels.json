@@ -14,6 +14,24 @@
     "process": "Traditional Ingot Metallurgy. A basic, non-stainless high-carbon steel known for its simplicity and ability to take a very keen edge."
   },
   {
+    "id": "4116",
+    "name": "4116 (Krupp)",
+    "tier": "Budget",
+    "toughness": 8,
+    "corrosion": 8,
+    "retention": 3,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.50,
+      "Cr": 15.0,
+      "Mo": 0.65,
+      "V": 0.15,
+      "Mn": 0.50,
+      "Si": 0.50
+    },
+    "process": "Ingot Metallurgy. A German stainless steel that is the industry standard for high-end Western kitchen knives and Swiss Army Knives. It is prized for its extreme corrosion resistance and high toughness, making it nearly impossible to chip, though it requires more frequent sharpening than high-carbide steels."
+  },
+  {
     "id": "5160",
     "name": "5160",
     "tier": "Budget",
@@ -306,7 +324,7 @@
     },
     "process": "Ingot Metallurgy by Aichi. A time-tested Japanese steel known for taking a very fine edge very quickly; common in high-quality budget folders."
   },
-   {
+  {
     "id": "aus10",
     "name": "AUS10",
     "tier": "Premium",
