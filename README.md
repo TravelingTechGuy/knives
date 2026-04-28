@@ -1,4 +1,4 @@
-# <img src="favicon.svg" width="24" height="24" style="vertical-align:middle; margin-right:0.35rem;" alt="favicon" /> Knife Steel Performance <img src="favicon.svg" width="24" height="24" style="vertical-align:middle; margin-right:0.35rem;" alt="favicon" />
+# <img src="favicon.svg" width="24" height="24" style="vertical-align:middle; margin-right:0.35rem;" alt="favicon" /> Knife Steel Performance <img src="favicon.svg" width="24" height="24" style="vertical-align:middle; margin-right:0.35rem; transform: scaleX(-1);" alt="favicon" />
 
 A web application for visualizing and comparing the performance characteristics of various knife steels. This app displays radar charts showing toughness, corrosion resistance, edge retention, and sharpening ease for different steel types.
 

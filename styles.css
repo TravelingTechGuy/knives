@@ -40,6 +40,10 @@ canvas {
   margin-right: 0.5em;
 }
 
+.title-icon-mirrored {
+  transform: scaleX(-1);
+}
+
 .database-info {
   display: flex;
   justify-content: center;
