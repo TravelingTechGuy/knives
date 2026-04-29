@@ -47,6 +47,78 @@ const createMetallurgyHTML = steel => {
   `;
 };
 
+// Theme management
+const themeManager = {
+  // Get system preference
+  getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  },
+
+  // Get current theme from system preference only
+  getCurrentTheme() {
+    return this.getSystemTheme();
+  },
+
+  // Set theme
+  setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    this.updateToggleButton(theme);
+  },
+
+  // Toggle between themes
+  toggleTheme() {
+    const currentTheme = this.getCurrentTheme();
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    this.setTheme(newTheme);
+  },
+
+  // Update toggle button icon
+  updateToggleButton(theme) {
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (!toggleBtn) return;
+
+    const svg = toggleBtn.querySelector('svg');
+    if (theme === 'light') {
+      // Moon icon for light theme (switch to dark)
+      svg.innerHTML = `
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      `;
+    } else {
+      // Sun icon for dark theme (switch to light)
+      svg.innerHTML = `
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      `;
+    }
+  },
+
+  // Initialize theme system
+  init() {
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const newTheme = e.matches ? 'dark' : 'light';
+      this.setTheme(newTheme);
+    });
+
+    // Set initial theme from OS preference
+    const initialTheme = this.getCurrentTheme();
+    this.setTheme(initialTheme);
+
+    // Setup toggle button
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => this.toggleTheme());
+    }
+  }
+};
+
 // Helper: Initialize the Radar Chart
 const initChart = steel => {
   const ctx = document.getElementById(`chart-${steel.id}`).getContext('2d');
@@ -202,6 +274,9 @@ const handleEvents = () => {
     clearButton.style.display = searchInput.value ? 'flex' : 'none';
   };
 
+  // initialize the clear button state on load
+  toggleClearButton();
+
   // event listeners
   searchInput.addEventListener('input', e => {
     toggleClearButton();
@@ -220,8 +295,83 @@ const handleEvents = () => {
   });
 };
 
+// Tooltip handling for mobile devices
+const setupTooltips = () => {
+  // Check if device is touch-enabled
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  // Get all tooltip elements
+  const tooltipElements = document.querySelectorAll('.element-tooltip, .info-btn');
+
+  tooltipElements.forEach(element => {
+    // Remove existing event listeners to prevent duplicates
+    element.removeEventListener('mouseenter', showTooltip);
+    element.removeEventListener('mouseleave', hideTooltip);
+    element.removeEventListener('touchstart', handleTouchTooltip);
+
+    if (isTouchDevice) {
+      // For touch devices, use touch events
+      element.addEventListener('touchstart', handleTouchTooltip);
+    } else {
+      // For non-touch devices, use hover events
+      element.addEventListener('mouseenter', showTooltip);
+      element.addEventListener('mouseleave', hideTooltip);
+    }
+  });
+};
+
+// Show tooltip function
+const showTooltip = (event) => {
+  const tooltip = event.currentTarget;
+  const tooltipText = tooltip.getAttribute('data-tooltip');
+
+  // Create tooltip element if it doesn't exist
+  let tooltipElement = tooltip.querySelector('.tooltip-element');
+  if (!tooltipElement) {
+    tooltipElement = document.createElement('div');
+    tooltipElement.className = 'tooltip-element';
+    tooltip.appendChild(tooltipElement);
+  }
+
+  tooltipElement.textContent = tooltipText;
+  tooltipElement.style.display = 'block';
+};
+
+// Hide tooltip function
+const hideTooltip = (event) => {
+  const tooltip = event.currentTarget;
+  const tooltipElement = tooltip.querySelector('.tooltip-element');
+  if (tooltipElement) {
+    tooltipElement.style.display = 'none';
+  }
+};
+
+// Handle touch tooltip
+const handleTouchTooltip = (event) => {
+  event.preventDefault();
+  const tooltip = event.currentTarget;
+
+  // Toggle tooltip visibility on touch
+  const tooltipElement = tooltip.querySelector('.tooltip-element');
+  if (tooltipElement) {
+    tooltipElement.style.display = tooltipElement.style.display === 'block' ? 'none' : 'block';
+  } else {
+    // Create tooltip if it doesn't exist
+    const tooltipText = tooltip.getAttribute('data-tooltip');
+    const newTooltipElement = document.createElement('div');
+    newTooltipElement.className = 'tooltip-element';
+    newTooltipElement.textContent = tooltipText;
+    newTooltipElement.style.display = 'block';
+    tooltip.appendChild(newTooltipElement);
+  }
+};
+
 // Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
+  themeManager.init();
   handleEvents();
   renderCards();
+
+  // Setup tooltips after initial load
+  setupTooltips();
 });
