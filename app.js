@@ -54,9 +54,9 @@ const themeManager = {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   },
 
-  // Get current theme from system preference only
+  // Get current theme from the document or fallback to system preference
   getCurrentTheme() {
-    return this.getSystemTheme();
+    return document.documentElement.getAttribute('data-theme') || this.getSystemTheme();
   },
 
   // Set theme
