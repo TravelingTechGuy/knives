@@ -1,10 +1,37 @@
 :root {
+  /* Dark theme (default) */
   --bg-color: #0f172a;
   --card-bg: #1e293b;
   --text-main: #f8fafc;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --hover-shadow: rgba(0, 0, 0, 0.2);
   --super-steel: #fbbf24;
   --premium: #a78bfa;
   --budget: #2dd4bf;
+  --error-color: #ef4444;
+  --tooltip-bg: rgba(15, 23, 42, 0.98);
+  --tooltip-text: #fff;
+  --tooltip-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-light: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --hover-shadow: rgba(0, 0, 0, 0.1);
+  --tooltip-bg: rgba(248, 250, 252, 0.98);
+  --tooltip-text: #0f172a;
+  --tooltip-shadow: rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -18,6 +45,41 @@ body {
 header {
   text-align: center;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.header-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.theme-toggle-btn {
+  background-color: var(--card-bg);
+  background-image: url('icons/icon-sun.svg');
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--premium);
+}
+
+/* Light theme - show moon icon */
+[data-theme="light"] .theme-toggle-btn {
+  background-image: url('icons/icon-moon.svg');
 }
 
 h2 {
@@ -63,7 +125,7 @@ canvas {
 #sort-select {
   background: var(--card-bg);
   color: var(--text-main);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
@@ -86,11 +148,11 @@ canvas {
   display: flex;
   align-items: center;
   background: var(--card-bg);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--border-color);
   border-radius: 14px;
   padding: 4px 8px 4px 16px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px var(--hover-shadow);
 }
 
 .search-wrapper:focus-within {
@@ -111,12 +173,12 @@ canvas {
 
 .clear-btn {
   background: rgba(255, 255, 255, 0.05);
-  border: none;
-  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
@@ -125,7 +187,9 @@ canvas {
 
 .clear-btn:hover {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  border-color: var(--error-color);
+  color: var(--error-color);
+  box-shadow: 0 0 10px var(--error-color);
 }
 
 .filter-hints {
@@ -137,7 +201,7 @@ canvas {
 
 .filter-hint {
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--text-secondary);
   text-align: center;
 }
 
@@ -164,7 +228,7 @@ canvas {
   border-radius: 16px;
   padding: 20px;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   /* Ensure height is NOT fixed */
   height: auto;
   /* Smoothly transition the card size change */
@@ -174,7 +238,7 @@ canvas {
 .card:hover {
   transform: translateY(-10px);
   box-shadow:
-    0 10px 30px -5px rgba(0, 0, 0, 0.5),
+    0 10px 30px -5px var(--shadow-color),
     0 0 20px var(--hover-glow);
   border-color: var(--tier-color);
   z-index: 10;
@@ -221,6 +285,19 @@ canvas {
   border: 1px solid var(--budget);
 }
 
+/* Light theme tier badge adjustments */
+[data-theme="light"] .tier-super-steel {
+  background: rgba(251, 191, 36, 0.2);
+}
+
+[data-theme="light"] .tier-premium {
+  background: rgba(167, 139, 250, 0.2);
+}
+
+[data-theme="light"] .tier-budget {
+  background: rgba(45, 212, 191, 0.2);
+}
+
 /* Metallurgy View Toggle */
 .card-header {
   display: flex;
@@ -237,12 +314,12 @@ canvas {
 .info-btn {
   background: rgba(255, 255, 255, 0.05);
   /* Use the dynamic tier color for the border */
-  border: 1px solid var(--tier-color, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--tier-color, var(--border-color));
   border-radius: 8px;
   cursor: pointer;
   padding: 6px;
   /* Use the dynamic tier color for the icon */
-  color: var(--tier-color, #94a3b8);
+  color: var(--tier-color, var(--text-muted));
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -285,7 +362,7 @@ canvas {
   opacity: 1;
   margin-top: 15px;
   padding-top: 15px;
-  border-top-color: rgba(255, 255, 255, 0.1);
+  border-top-color: var(--border-color);
 }
 
 .composition-grid {
@@ -300,14 +377,14 @@ canvas {
   padding: 6px;
   border-radius: 6px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
   cursor: pointer;
 }
 
 .comp-label {
   font-size: 0.65rem;
   font-weight: 800;
-  color: #64748b;
+  color: var(--text-secondary);
   display: block;
   text-transform: uppercase;
 }
@@ -322,12 +399,17 @@ canvas {
   font-size: 0.85rem;
   line-height: 1.5;
   /* Use the tier color for the text */
-  color: var(--tier-color, #94a3b8);
+  color: var(--tier-color, var(--text-muted));
   background: rgba(0, 0, 0, 0.2);
   padding: 12px;
   border-radius: 8px;
   /* Match the border to the tier color as well */
   border-left: 3px solid var(--tier-color);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .process-text {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .process-text strong {
@@ -350,8 +432,8 @@ canvas {
   top: 125%; /* Changed from bottom to top */
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
-  background: rgba(15, 23, 42, 0.98);
-  color: #fff;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
   padding: 6px 10px;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -359,7 +441,7 @@ canvas {
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px var(--tooltip-shadow);
   border: 1px solid var(--tier-color); /* Thematic border */
   pointer-events: none;
   z-index: 999; /* Force it to the front */
@@ -375,7 +457,7 @@ canvas {
   border-width: 5px;
   border-style: solid;
   /* Arrow now points UP to the button */
-  border-color: transparent transparent rgba(15, 23, 42, 0.95) transparent;
+  border-color: transparent transparent var(--tooltip-bg) transparent;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
@@ -389,4 +471,26 @@ canvas {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+
+/* JavaScript tooltip element */
+.tooltip-element {
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 4px 12px var(--tooltip-shadow);
+  border: 1px solid var(--tier-color);
+  pointer-events: none;
+  z-index: 999;
+  display: none;
+  margin-top: 0;
 }

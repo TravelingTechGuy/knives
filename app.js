@@ -47,6 +47,49 @@ const createMetallurgyHTML = steel => {
   `;
 };
 
+// Theme management
+const themeManager = {
+  // Get system preference
+  getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  },
+
+  // Get current theme from the document or fallback to system preference
+  getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') || this.getSystemTheme();
+  },
+
+  // Set theme
+  setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+  },
+
+  // Toggle between themes
+  toggleTheme() {
+    const newTheme = this.getCurrentTheme() === 'dark' ? 'light' : 'dark';
+    this.setTheme(newTheme);
+  },
+
+  // Initialize theme system
+  init() {
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const newTheme = e.matches ? 'dark' : 'light';
+      this.setTheme(newTheme);
+    });
+
+    // Set initial theme from OS preference
+    const initialTheme = this.getCurrentTheme();
+    this.setTheme(initialTheme);
+
+    // Setup toggle button
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => this.toggleTheme());
+    }
+  }
+};
+
 // Helper: Initialize the Radar Chart
 const initChart = steel => {
   const ctx = document.getElementById(`chart-${steel.id}`).getContext('2d');
@@ -195,12 +238,15 @@ const renderCards = () => {
 
 const handleEvents = () => {
   const searchInput = document.getElementById('steel-search');
-  const clearButton = document.getElementById('clear-search');
+  const clearButton = document.getElementById('clear-filter');
   const sortSelect = document.getElementById('sort-select');
 
   const toggleClearButton = () => {
     clearButton.style.display = searchInput.value ? 'flex' : 'none';
   };
+
+  // initialize the clear button state on load
+  toggleClearButton();
 
   // event listeners
   searchInput.addEventListener('input', e => {
@@ -220,8 +266,83 @@ const handleEvents = () => {
   });
 };
 
+// Tooltip handling for mobile devices
+const setupTooltips = () => {
+  // Check if device is touch-enabled
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  // Get all tooltip elements
+  const tooltipElements = document.querySelectorAll('.element-tooltip, .info-btn');
+
+  tooltipElements.forEach(element => {
+    // Remove existing event listeners to prevent duplicates
+    element.removeEventListener('mouseenter', showTooltip);
+    element.removeEventListener('mouseleave', hideTooltip);
+    element.removeEventListener('touchstart', handleTouchTooltip);
+
+    if (isTouchDevice) {
+      // For touch devices, use touch events
+      element.addEventListener('touchstart', handleTouchTooltip);
+    } else {
+      // For non-touch devices, use hover events
+      element.addEventListener('mouseenter', showTooltip);
+      element.addEventListener('mouseleave', hideTooltip);
+    }
+  });
+};
+
+// Show tooltip function
+const showTooltip = (event) => {
+  const tooltip = event.currentTarget;
+  const tooltipText = tooltip.getAttribute('data-tooltip');
+
+  // Create tooltip element if it doesn't exist
+  let tooltipElement = tooltip.querySelector('.tooltip-element');
+  if (!tooltipElement) {
+    tooltipElement = document.createElement('div');
+    tooltipElement.className = 'tooltip-element';
+    tooltip.appendChild(tooltipElement);
+  }
+
+  tooltipElement.textContent = tooltipText;
+  tooltipElement.style.display = 'block';
+};
+
+// Hide tooltip function
+const hideTooltip = (event) => {
+  const tooltip = event.currentTarget;
+  const tooltipElement = tooltip.querySelector('.tooltip-element');
+  if (tooltipElement) {
+    tooltipElement.style.display = 'none';
+  }
+};
+
+// Handle touch tooltip
+const handleTouchTooltip = (event) => {
+  event.preventDefault();
+  const tooltip = event.currentTarget;
+
+  // Toggle tooltip visibility on touch
+  const tooltipElement = tooltip.querySelector('.tooltip-element');
+  if (tooltipElement) {
+    tooltipElement.style.display = tooltipElement.style.display === 'block' ? 'none' : 'block';
+  } else {
+    // Create tooltip if it doesn't exist
+    const tooltipText = tooltip.getAttribute('data-tooltip');
+    const newTooltipElement = document.createElement('div');
+    newTooltipElement.className = 'tooltip-element';
+    newTooltipElement.textContent = tooltipText;
+    newTooltipElement.style.display = 'block';
+    tooltip.appendChild(newTooltipElement);
+  }
+};
+
 // Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
+  themeManager.init();
   handleEvents();
   renderCards();
+
+  // Setup tooltips after initial load
+  setupTooltips();
 });
