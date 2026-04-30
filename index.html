@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Traveling Tech Guy">
   <meta name="copyright" content="© 2026 Traveling Tech Guy LLC">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
   <title>Knife Steel Performance</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="styles.css">
@@ -16,34 +16,18 @@
 
   <header>
     <div class="header-controls">
-      <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-      </button>
+      <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme"></button>
     </div>
     <h1>
-      <img src="favicon.svg" alt="Knife icon" class="title-icon">
+      <img src="icons/favicon.svg" alt="Knife icon" class="title-icon">
       <span>Knife Steel Performance</span>
-      <img src="favicon.svg" alt="Knife icon" class="title-icon title-icon-mirrored">
+      <img src="icons/favicon.svg" alt="Knife icon" class="title-icon title-icon-mirrored">
     </h1>
     <div class="search-container">
       <div class="search-wrapper">
         <input type="text" id="steel-search" placeholder="Filter steels (e.g. M390, toughness > 7)...">
-        <button id="clear-search" class="clear-btn" title="Clear search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+        <button id="clear-filter" class="clear-btn" title="Clear filter">
+          <img src="icons/icon-clear.svg" alt="Clear" />
         </button>
       </div>
       <div class="filter-hints">
