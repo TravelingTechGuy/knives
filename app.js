@@ -342,7 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
   themeManager.init();
   handleEvents();
   renderCards();
-
   // Setup tooltips after initial load
   setupTooltips();
 });
