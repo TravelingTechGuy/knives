@@ -28,24 +28,154 @@ const elementNames = {
   "Si": "Silicon"
 };
 
-// Helper: Create the Metallurgy HTML
-const createMetallurgyHTML = steel => {
-  const sortedComposition = Object.entries(steel.composition).sort(([, a], [, b]) => b - a);
+// Tooltip manager (closed over handlers and state)
+const tooltipManager = (() => {
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  let bound = {
+    mouseEnter: null,
+    mouseLeave: null,
+    touchStart: null,
+    click: null,
+    docTouch: null,
+    docClick: null
+  };
 
-  return `
-    <div class="metallurgy-view">
-      <div class="composition-grid">
-        ${sortedComposition.map(([el, val]) => `
-          <div class="comp-item element-tooltip" data-tooltip="${elementNames[el] || el}">
-            <span class="comp-label">${el}</span>
-            <span class="comp-val">${val}%</span>
-          </div>
-        `).join('')}
-      </div>
-      <div class="process-text"><strong>Process:</strong> ${steel.process}</div>
-    </div>
-  `;
-};
+  const getElements = () => Array.from(document.querySelectorAll('.element-tooltip, .info-btn'));
+
+  const hideAll = () => {
+    document.querySelectorAll('.tooltip-element').forEach(el => el.remove());
+    getElements().forEach(el => el.removeAttribute('data-active'));
+  };
+
+  const createFloatingTooltip = (target, text) => {
+    const existingId = target.getAttribute('data-tooltip-id');
+    if (existingId) {
+      const existing = document.getElementById(existingId);
+      if (existing) {
+        existing.textContent = text;
+        existing.style.display = 'block';
+        return existing;
+      }
+    }
+
+    const id = `tooltip-${Date.now()}-${Math.floor(Math.random()*10000)}`;
+    const el = document.createElement('div');
+    el.className = 'tooltip-element';
+    el.id = id;
+    el.textContent = text;
+    el.style.position = 'fixed';
+    el.style.display = 'block';
+    el.style.pointerEvents = 'none';
+    el.style.zIndex = 9999;
+    el.style.visibility = 'hidden';
+    document.body.appendChild(el);
+
+    const rect = target.getBoundingClientRect();
+    const padding = 8;
+    const elRect = el.getBoundingClientRect();
+    let left = rect.left + (rect.width / 2) - (elRect.width / 2);
+    left = Math.max(padding, Math.min(left, window.innerWidth - elRect.width - padding));
+    const top = rect.bottom + 8;
+    el.style.left = `${left}px`;
+    el.style.top = `${top}px`;
+    el.style.visibility = 'visible';
+
+    target.setAttribute('data-tooltip-id', id);
+    return el;
+  };
+
+  const removeFloatingTooltip = (target) => {
+    const id = target.getAttribute('data-tooltip-id');
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el) el.remove();
+    target.removeAttribute('data-tooltip-id');
+  };
+
+  const showTooltip = (e) => {
+    const target = e.currentTarget || e.target;
+    const text = target.getAttribute('data-tooltip');
+    if (!text) return;
+    createFloatingTooltip(target, text);
+  };
+
+  const hideTooltip = (e) => {
+    const target = e.currentTarget || e.target;
+    if (!target) return;
+    removeFloatingTooltip(target);
+  };
+
+  const handleTouch = (e) => {
+    if (e.cancelable) e.preventDefault();
+    e.stopPropagation();
+    const target = e.currentTarget || e.target;
+    if (!target) return;
+
+    // remove other tooltips
+    document.querySelectorAll('.tooltip-element').forEach(el => {
+      if (!target.contains(el)) el.remove();
+    });
+
+    const id = target.getAttribute('data-tooltip-id');
+    if (id && document.getElementById(id)) {
+      removeFloatingTooltip(target);
+      target.removeAttribute('data-active');
+    } else {
+      const text = target.getAttribute('data-tooltip');
+      if (!text) return;
+      createFloatingTooltip(target, text);
+      target.setAttribute('data-active', 'true');
+    }
+  };
+
+  const bind = () => {
+    const els = getElements();
+
+    // prepare bound handlers so removeEventListener works
+    bound.mouseEnter = showTooltip;
+    bound.mouseLeave = hideTooltip;
+    bound.touchStart = handleTouch;
+    bound.click = handleTouch;
+
+    els.forEach(el => {
+      el.removeEventListener('mouseenter', bound.mouseEnter);
+      el.removeEventListener('mouseleave', bound.mouseLeave);
+      el.removeEventListener('touchstart', bound.touchStart);
+      el.removeEventListener('click', bound.click);
+
+      if (isTouchDevice) {
+        el.addEventListener('touchstart', bound.touchStart, { passive: false });
+        el.addEventListener('click', bound.click);
+      } else {
+        el.addEventListener('mouseenter', bound.mouseEnter);
+        el.addEventListener('mouseleave', bound.mouseLeave);
+      }
+    });
+
+    if (isTouchDevice) {
+      bound.docTouch = (ev) => {
+        const t = ev.target;
+        if (!t.closest('.info-btn') && !t.closest('.element-tooltip') && !t.closest('.tooltip-element')) hideAll();
+      };
+      bound.docClick = (ev) => {
+        const t = ev.target;
+        if (!t.closest('.info-btn') && !t.closest('.element-tooltip') && !t.closest('.tooltip-element')) hideAll();
+      };
+
+      document.removeEventListener('touchstart', bound.docTouch);
+      document.removeEventListener('click', bound.docClick);
+      document.addEventListener('touchstart', bound.docTouch, { passive: true });
+      document.addEventListener('click', bound.docClick);
+    }
+  };
+
+  return {
+    init() { bind(); },
+    bind,
+    hideAll,
+    isTouchDevice
+  };
+})();
 
 // Theme management
 const themeManager = {
@@ -88,6 +218,25 @@ const themeManager = {
       toggleBtn.addEventListener('click', () => this.toggleTheme());
     }
   }
+};
+
+// Helper: Create the Metallurgy HTML
+const createMetallurgyHTML = steel => {
+  const sortedComposition = Object.entries(steel.composition).sort(([, a], [, b]) => b - a);
+
+  return `
+    <div class="metallurgy-view">
+      <div class="composition-grid">
+        ${sortedComposition.map(([el, val]) => `
+          <div class="comp-item element-tooltip" data-tooltip="${elementNames[el] || el}">
+            <span class="comp-label">${el}</span>
+            <span class="comp-val">${val}%</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="process-text"><strong>Process:</strong> ${steel.process}</div>
+    </div>
+  `;
 };
 
 // Helper: Initialize the Radar Chart
@@ -266,82 +415,11 @@ const handleEvents = () => {
   });
 };
 
-// Tooltip handling for mobile devices
-const setupTooltips = () => {
-  // Check if device is touch-enabled
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-  // Get all tooltip elements
-  const tooltipElements = document.querySelectorAll('.element-tooltip, .info-btn');
-
-  tooltipElements.forEach(element => {
-    // Remove existing event listeners to prevent duplicates
-    element.removeEventListener('mouseenter', showTooltip);
-    element.removeEventListener('mouseleave', hideTooltip);
-    element.removeEventListener('touchstart', handleTouchTooltip);
-
-    if (isTouchDevice) {
-      // For touch devices, use touch events
-      element.addEventListener('touchstart', handleTouchTooltip);
-    } else {
-      // For non-touch devices, use hover events
-      element.addEventListener('mouseenter', showTooltip);
-      element.addEventListener('mouseleave', hideTooltip);
-    }
-  });
-};
-
-// Show tooltip function
-const showTooltip = (event) => {
-  const tooltip = event.currentTarget;
-  const tooltipText = tooltip.getAttribute('data-tooltip');
-
-  // Create tooltip element if it doesn't exist
-  let tooltipElement = tooltip.querySelector('.tooltip-element');
-  if (!tooltipElement) {
-    tooltipElement = document.createElement('div');
-    tooltipElement.className = 'tooltip-element';
-    tooltip.appendChild(tooltipElement);
-  }
-
-  tooltipElement.textContent = tooltipText;
-  tooltipElement.style.display = 'block';
-};
-
-// Hide tooltip function
-const hideTooltip = (event) => {
-  const tooltip = event.currentTarget;
-  const tooltipElement = tooltip.querySelector('.tooltip-element');
-  if (tooltipElement) {
-    tooltipElement.style.display = 'none';
-  }
-};
-
-// Handle touch tooltip
-const handleTouchTooltip = (event) => {
-  event.preventDefault();
-  const tooltip = event.currentTarget;
-
-  // Toggle tooltip visibility on touch
-  const tooltipElement = tooltip.querySelector('.tooltip-element');
-  if (tooltipElement) {
-    tooltipElement.style.display = tooltipElement.style.display === 'block' ? 'none' : 'block';
-  } else {
-    // Create tooltip if it doesn't exist
-    const tooltipText = tooltip.getAttribute('data-tooltip');
-    const newTooltipElement = document.createElement('div');
-    newTooltipElement.className = 'tooltip-element';
-    newTooltipElement.textContent = tooltipText;
-    newTooltipElement.style.display = 'block';
-    tooltip.appendChild(newTooltipElement);
-  }
-};
-
 // Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
   themeManager.init();
   handleEvents();
   renderCards();
   // Setup tooltips after initial load
-  setupTooltips();
+  tooltipManager.init();
 });
