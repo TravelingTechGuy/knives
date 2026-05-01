@@ -100,10 +100,18 @@ const tooltipManager = (() => {
   };
 
   const handleTouch = (e) => {
-    if (e.cancelable) e.preventDefault();
-    e.stopPropagation();
     const target = e.currentTarget || e.target;
     if (!target) return;
+
+    // Check if we are touching the info button
+    const isInfoBtn = target.classList.contains('info-btn') || target.closest('.info-btn');
+
+    // ONLY prevent default/stop propagation if it's NOT the info button
+    // This allows the info button's 'onclick' handler to still work.
+    if (!isInfoBtn) {
+      if (e.cancelable) e.preventDefault();
+      e.stopPropagation();
+    }
 
     // remove other tooltips
     document.querySelectorAll('.tooltip-element').forEach(el => {
@@ -375,7 +383,8 @@ const renderCards = () => {
       btn.setAttribute('data-active', isActive);
     };
   });
-
+  //fix touch events
+  tooltipManager.bind();
   document.getElementById('steel-count').innerText = `Total Steels: ${filtered.length}`;
 };
 
