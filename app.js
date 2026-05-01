@@ -58,7 +58,7 @@ const tooltipManager = (() => {
       }
     }
 
-    const id = `tooltip-${Date.now()}-${Math.floor(Math.random()*10000)}`;
+    const id = `tooltip-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
     const el = document.createElement('div');
     el.className = 'tooltip-element';
     el.id = id;
@@ -133,21 +133,20 @@ const tooltipManager = (() => {
   const bind = () => {
     const els = getElements();
 
-    // prepare bound handlers so removeEventListener works
+    // Simplify: pointerdown works for both mouse clicks and finger touches
+    bound.pointerDown = handleTouch;
     bound.mouseEnter = showTooltip;
     bound.mouseLeave = hideTooltip;
-    bound.touchStart = handleTouch;
-    bound.click = handleTouch;
 
     els.forEach(el => {
+      // Clean up old listeners
       el.removeEventListener('mouseenter', bound.mouseEnter);
       el.removeEventListener('mouseleave', bound.mouseLeave);
-      el.removeEventListener('touchstart', bound.touchStart);
-      el.removeEventListener('click', bound.click);
+      el.removeEventListener('pointerdown', bound.pointerDown);
 
       if (isTouchDevice) {
-        el.addEventListener('touchstart', bound.touchStart, { passive: false });
-        el.addEventListener('click', bound.click);
+        // Use pointerdown for instant response on mobile
+        el.addEventListener('pointerdown', bound.pointerDown, { passive: false });
       } else {
         el.addEventListener('mouseenter', bound.mouseEnter);
         el.addEventListener('mouseleave', bound.mouseLeave);
@@ -155,19 +154,11 @@ const tooltipManager = (() => {
     });
 
     if (isTouchDevice) {
-      bound.docTouch = (ev) => {
+      bound.docPointer = (ev) => {
         const t = ev.target;
         if (!t.closest('.info-btn') && !t.closest('.element-tooltip') && !t.closest('.tooltip-element')) hideAll();
       };
-      bound.docClick = (ev) => {
-        const t = ev.target;
-        if (!t.closest('.info-btn') && !t.closest('.element-tooltip') && !t.closest('.tooltip-element')) hideAll();
-      };
-
-      document.removeEventListener('touchstart', bound.docTouch);
-      document.removeEventListener('click', bound.docClick);
-      document.addEventListener('touchstart', bound.docTouch, { passive: true });
-      document.addEventListener('click', bound.docClick);
+      document.addEventListener('pointerdown', bound.docPointer);
     }
   };
 
@@ -343,7 +334,7 @@ const renderCards = () => {
       return a.name.localeCompare(b.name, undefined, {
         numeric: true,
         sensitivity: 'base'
-    });
+      });
     if (sortBy === 'tier')
       return tierPriority[a.tier] - tierPriority[b.tier] || a.name.localeCompare(b.name);
     return b[sortBy] - a[sortBy] || a.name.localeCompare(b.name, undefined, {
