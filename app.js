@@ -418,4 +418,5 @@ document.addEventListener('DOMContentLoaded', () => {
   tooltipManager.init();
 });
 
+// export functions for testing
 export { renderCards, handleEvents, tooltipManager };
