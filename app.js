@@ -423,3 +423,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup tooltips after initial load
   tooltipManager.init();
 });
+
+export { renderCards, handleEvents, tooltipManager };
