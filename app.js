@@ -63,11 +63,6 @@ const tooltipManager = (() => {
     el.className = 'tooltip-element';
     el.id = id;
     el.textContent = text;
-    el.style.position = 'fixed';
-    el.style.display = 'block';
-    el.style.pointerEvents = 'none';
-    el.style.zIndex = 9999;
-    el.style.visibility = 'hidden';
     document.body.appendChild(el);
 
     const rect = target.getBoundingClientRect();
@@ -78,7 +73,6 @@ const tooltipManager = (() => {
     const top = rect.bottom + 8;
     el.style.left = `${left}px`;
     el.style.top = `${top}px`;
-    el.style.visibility = 'visible';
 
     target.setAttribute('data-tooltip-id', id);
     return el;
