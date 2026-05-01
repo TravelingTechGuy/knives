@@ -379,6 +379,9 @@ canvas {
   text-align: center;
   border: 1px solid var(--border-light);
   cursor: pointer;
+  position: relative;
+  padding: 4px; /* Increases the tapable area */
+  touch-action: manipulation; /* Tells the browser not to wait for double-tap delays */
 }
 
 .comp-label {
