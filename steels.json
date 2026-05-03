@@ -425,6 +425,26 @@
     "process": "Powder Metallurgy by Crucible. A high-speed tool steel with very high Tungsten and Vanadium. It is a favorite for competitive cutting due to its impact resistance."
   },
   {
+    "id": "rex121",
+    "name": "CPM-Rex121",
+    "tier": "Super Steel",
+    "toughness": 2,
+    "corrosion": 3,
+    "retention": 10,
+    "sharpening": 1,
+    "composition": {
+      "C": 3.40,
+      "Cr": 4.00,
+      "V": 9.50,
+      "W": 10.00,
+      "Mo": 5.00,
+      "Co": 9.00,
+      "Mn": 0.35,
+      "Si": 0.35
+    },
+    "process": "Crucible Particle Metallurgy (CPM). A cobalt-bearing high-speed tool steel designed to bridge the gap between high-alloy tool steels and cemented carbides. It offers the highest wear resistance and attainable hardness of any powder metallurgy steel currently available."
+  },
+  {
     "id": "s10v",
     "name": "CPM-S10V",
     "tier": "Super Steel",
