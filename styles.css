@@ -214,6 +214,10 @@ canvas {
   .title-icon-mirrored {
     display: none;
   }
+  .header-controls {
+    position: static;
+    margin-top: 5px;
+  }
 }
 
 /* Grid and Card Styles */
