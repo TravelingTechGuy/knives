@@ -405,7 +405,7 @@ canvas {
   color: var(--text-main);
 }
 
-.process-text {
+.details-text {
   font-size: 0.85rem;
   line-height: 1.5;
   /* Use the tier color for the text */
@@ -418,12 +418,12 @@ canvas {
 }
 
 /* Light theme adjustments */
-[data-theme="light"] .process-text {
+[data-theme="light"] .details-text {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.process-text strong {
-  /* Make the "Process:" label slightly brighter for contrast */
+.details-text strong {
+  /* Make the "Details:" label slightly brighter for contrast */
   filter: brightness(1.2);
   text-transform: uppercase;
   font-size: 0.75rem;

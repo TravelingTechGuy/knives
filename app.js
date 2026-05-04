@@ -227,7 +227,7 @@ const createMetallurgyHTML = steel => {
           </div>
         `).join('')}
       </div>
-      <div class="process-text"><strong>Process:</strong> ${steel.process}</div>
+      <div class="details-text"><strong>Details:</strong> ${steel.details}</div>
     </div>
   `;
 };

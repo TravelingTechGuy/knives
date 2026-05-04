@@ -11,7 +11,7 @@
       "C": 0.95,
       "Mn": 0.40
     },
-    "process": "Traditional Ingot Metallurgy. A basic, non-stainless high-carbon steel known for its simplicity and ability to take a very keen edge."
+    "details": "Traditional Ingot Metallurgy. A basic, non-stainless high-carbon steel known for its simplicity and ability to take a very keen edge."
   },
   {
     "id": "4116",
@@ -29,7 +29,7 @@
       "Mn": 0.50,
       "Si": 0.50
     },
-    "process": "Ingot Metallurgy. A German stainless steel that is the industry standard for high-end Western kitchen knives and Swiss Army Knives. It is prized for its extreme corrosion resistance and high toughness, making it nearly impossible to chip, though it requires more frequent sharpening than high-carbide steels."
+    "details": "Ingot Metallurgy. A German stainless steel that is the industry standard for high-end Western kitchen knives and Swiss Army Knives. It is prized for its extreme corrosion resistance and high toughness, making it nearly impossible to chip, though it requires more frequent sharpening than high-carbide steels."
   },
   {
     "id": "5160",
@@ -45,7 +45,7 @@
       "Mn": 0.85,
       "Si": 0.25
     },
-    "process": "Ingot Metallurgy. A legendary high-carbon chromium spring steel. It is world-renowned for its extreme fatigue resistance and impact toughness, making it the standard choice for functional swords and heavy-duty choppers."
+    "details": "Ingot Metallurgy. A legendary high-carbon chromium spring steel. It is world-renowned for its extreme fatigue resistance and impact toughness, making it the standard choice for functional swords and heavy-duty choppers."
   },
   {
     "id": "52100",
@@ -61,7 +61,7 @@
       "Mn": 0.35,
       "Si": 0.25
     },
-    "process": "Ingot Metallurgy. Originally designed for industrial ball bearings, it is a deep-hardening steel with a very fine grain structure, allowing for extreme sharpness and high toughness for a carbon steel."
+    "details": "Ingot Metallurgy. Originally designed for industrial ball bearings, it is a deep-hardening steel with a very fine grain structure, allowing for extreme sharpness and high toughness for a carbon steel."
   },
   {
     "id": "8670",
@@ -78,7 +78,7 @@
       "Mn": 0.50,
       "Si": 0.25
     },
-    "process": "Ingot Metallurgy. Originally used for giant industrial saw blades, 8670 is a nickel-chromium alloy that provides toughness levels exceeding almost any other steel. It is highly forgiving in heat treatment and nearly impossible to snap under normal use."
+    "details": "Ingot Metallurgy. Originally used for giant industrial saw blades, 8670 is a nickel-chromium alloy that provides toughness levels exceeding almost any other steel. It is highly forgiving in heat treatment and nearly impossible to snap under normal use."
   },
   {
     "id": "10cr15mov",
@@ -95,7 +95,7 @@
       "V": 0.2,
       "Co": 1.5
     },
-    "process": "Ingot Metallurgy. A Chinese high-carbon stainless steel that serves as a direct equivalent to Japanese VG10, utilizing Cobalt to increase hardness."
+    "details": "Ingot Metallurgy. A Chinese high-carbon stainless steel that serves as a direct equivalent to Japanese VG10, utilizing Cobalt to increase hardness."
   },
   {
     "id": "12c27",
@@ -111,7 +111,7 @@
       "Mn": 0.4,
       "Si": 0.4
     },
-    "process": "Ingot Metallurgy by Sandvik. A high-purity steel with a fine carbide structure, optimized for razor-like sharpness and high corrosion resistance."
+    "details": "Ingot Metallurgy by Sandvik. A high-purity steel with a fine carbide structure, optimized for razor-like sharpness and high corrosion resistance."
   },
   {
     "id": "140cr",
@@ -128,7 +128,7 @@
       "V": 1.0,
       "Nb": 1.0
     },
-    "process": "Laminated Ingot Metallurgy. Often used by SRM, this is a complex alloy using Niobium and Vanadium to create fine, hard carbides for improved wear resistance."
+    "details": "Laminated Ingot Metallurgy. Often used by SRM, this is a complex alloy using Niobium and Vanadium to create fine, hard carbides for improved wear resistance."
   },
   {
     "id": "14c28n",
@@ -143,7 +143,7 @@
       "Cr": 14.0,
       "N": 0.11
     },
-    "process": "Ingot Metallurgy by Sandvik. Nitrogen-enriched to allow for high hardness and corrosion resistance without compromising the fine grain structure."
+    "details": "Ingot Metallurgy by Sandvik. Nitrogen-enriched to allow for high hardness and corrosion resistance without compromising the fine grain structure."
   },
   {
     "id": "154cm",
@@ -158,7 +158,7 @@
       "Cr": 14.0,
       "Mo": 4.0
     },
-    "process": "Ingot Metallurgy. Originally developed for jet engine valves, it adds Molybdenum to a 440C base to improve edge retention and toughness."
+    "details": "Ingot Metallurgy. Originally developed for jet engine valves, it adds Molybdenum to a 440C base to improve edge retention and toughness."
   },
   {
     "id": "420hc",
@@ -175,7 +175,7 @@
       "Mn": 0.8,
       "Si": 1.0
     },
-    "process": "Ingot Metallurgy. A high-carbon version of 420 stainless; when heat-treated correctly (famous by Buck Knives), it is very tough and easy to maintain."
+    "details": "Ingot Metallurgy. A high-carbon version of 420 stainless; when heat-treated correctly (famous by Buck Knives), it is very tough and easy to maintain."
   },
   {
     "id": "440c",
@@ -190,7 +190,7 @@
       "Cr": 17.0,
       "Mo": 0.75
     },
-    "process": "Ingot Metallurgy. The classic 'high-end' steel of the 20th century. It features large chromium carbides that provide good wear resistance but lower toughness."
+    "details": "Ingot Metallurgy. The classic 'high-end' steel of the 20th century. It features large chromium carbides that provide good wear resistance but lower toughness."
   },
   {
     "id": "7cr17mov",
@@ -210,7 +210,7 @@
       "P": 0.04,
       "S": 0.03
     },
-    "process": "A high-chromium stainless steel produced conventionally. The addition of Molybdenum and Vanadium increases its hardness and edge retention compared to standard 7Cr series steels."
+    "details": "A high-chromium stainless steel produced conventionally. The addition of Molybdenum and Vanadium increases its hardness and edge retention compared to standard 7Cr series steels."
   },
   {
     "id": "8cr13mov",
@@ -226,7 +226,7 @@
       "Mo": 0.15,
       "V": 0.1
     },
-    "process": "Ingot Metallurgy. A prolific Chinese budget steel similar to AUS-8. It offers a balanced performance for everyday light tasks."
+    "details": "Ingot Metallurgy. A prolific Chinese budget steel similar to AUS-8. It offers a balanced performance for everyday light tasks."
   },
   {
     "id": "80crv2",
@@ -242,7 +242,7 @@
       "V": 0.15,
       "Mn": 0.40
     },
-    "process": "Ingot Metallurgy. Often referred to as 'Swedish Saw Steel,' it is a high-carbon alloy that offers extreme toughness and ease of heat treatment, making it a favorite for custom makers of hard-use blades."
+    "details": "Ingot Metallurgy. Often referred to as 'Swedish Saw Steel,' it is a high-carbon alloy that offers extreme toughness and ease of heat treatment, making it a favorite for custom makers of hard-use blades."
   },
   {
     "id": "9cr18mov",
@@ -258,7 +258,7 @@
       "Mo": 0.7,
       "V": 0.1
     },
-    "process": "Ingot Metallurgy. Essentially a Chinese version of 440C with slightly better corrosion resistance due to the high Chromium content."
+    "details": "Ingot Metallurgy. Essentially a Chinese version of 440C with slightly better corrosion resistance due to the high Chromium content."
   },
   {
     "id": "a2",
@@ -276,7 +276,7 @@
       "Mn": 0.50,
       "Si": 0.30
     },
-    "process": "Ingot Metallurgy. An air-hardening cold-work tool steel. It offers a significant increase in toughness over D2 and 1095 while maintaining a very respectable edge, making it a favorite for bushcraft and field knives."
+    "details": "Ingot Metallurgy. An air-hardening cold-work tool steel. It offers a significant increase in toughness over D2 and 1095 while maintaining a very respectable edge, making it a favorite for bushcraft and field knives."
   },
   {
     "id": "aeb-l",
@@ -290,7 +290,7 @@
       "C": 0.67,
       "Cr": 13.0
     },
-    "process": "Ingot Metallurgy by Uddeholm. Originally a razor blade steel, it is prized by custom makers for its extremely fine carbide structure and high toughness."
+    "details": "Ingot Metallurgy by Uddeholm. Originally a razor blade steel, it is prized by custom makers for its extremely fine carbide structure and high toughness."
   },
   {
     "id": "ar-rpm9",
@@ -307,7 +307,7 @@
       "V": 0.1,
       "Co": 0.1
     },
-    "process": "Powder Metallurgy. A unique budget PM steel developed for Artisan Cutlery. It provides the clean structure of powder steel at an entry-level price point."
+    "details": "Powder Metallurgy. A unique budget PM steel developed for Artisan Cutlery. It provides the clean structure of powder steel at an entry-level price point."
   },
   {
     "id": "aus8",
@@ -322,7 +322,7 @@
       "Cr": 14.0,
       "V": 0.2
     },
-    "process": "Ingot Metallurgy by Aichi. A time-tested Japanese steel known for taking a very fine edge very quickly; common in high-quality budget folders."
+    "details": "Ingot Metallurgy by Aichi. A time-tested Japanese steel known for taking a very fine edge very quickly; common in high-quality budget folders."
   },
   {
     "id": "aus10",
@@ -338,7 +338,7 @@
       "V": 0.2,
       "Mo": 0.2
     },
-    "process": "Ingot Metallurgy by Aichi. A Japanese stainless steel that competes with 440C and 154CM, offering a slightly finer grain and better sharpenability."
+    "details": "Ingot Metallurgy by Aichi. A Japanese stainless steel that competes with 440C and 154CM, offering a slightly finer grain and better sharpenability."
   },
   {
     "id": "cpm-154",
@@ -353,7 +353,7 @@
       "Cr": 14.0,
       "Mo": 4.0
     },
-    "process": "Powder Metallurgy by Crucible. Uses the exact chemistry of 154CM but processed into powder to create much smaller carbides and significantly higher toughness."
+    "details": "Powder Metallurgy by Crucible. Uses the exact chemistry of 154CM but processed into powder to create much smaller carbides and significantly higher toughness."
   },
   {
     "id": "20cv",
@@ -370,7 +370,7 @@
       "V": 4.0,
       "W": 0.6
     },
-    "process": "Powder Metallurgy by Crucible. The American version of M390. Extremely high chromium and vanadium content for massive wear resistance and rust proofing."
+    "details": "Powder Metallurgy by Crucible. The American version of M390. Extremely high chromium and vanadium content for massive wear resistance and rust proofing."
   },
   {
     "id": "cpm-3v",
@@ -388,7 +388,7 @@
       "Mn": 0.40,
       "Si": 0.90
     },
-    "process": "Crucible Particle Metallurgy (CPM) tool steel designed to provide maximum resistance to breakage and chipping. It approaches the impact toughness of S7 shock steel while maintaining wear resistance similar to D2."
+    "details": "Crucible Particle Metallurgy (CPM) tool steel designed to provide maximum resistance to breakage and chipping. It approaches the impact toughness of S7 shock steel while maintaining wear resistance similar to D2."
   },
   {
     "id": "cruwear",
@@ -405,7 +405,7 @@
       "V": 2.4,
       "W": 1.15
     },
-    "process": "Powder Metallurgy by Crucible. An air-hardening tool steel designed to bridge the gap between toughness-focused steels and wear-resistance steels."
+    "details": "Powder Metallurgy by Crucible. An air-hardening tool steel designed to bridge the gap between toughness-focused steels and wear-resistance steels."
   },
   {
     "id": "cpm-m4",
@@ -422,7 +422,7 @@
       "V": 4.0,
       "W": 5.5
     },
-    "process": "Powder Metallurgy by Crucible. A high-speed tool steel with very high Tungsten and Vanadium. It is a favorite for competitive cutting due to its impact resistance."
+    "details": "Powder Metallurgy by Crucible. A high-speed tool steel with very high Tungsten and Vanadium. It is a favorite for competitive cutting due to its impact resistance."
   },
   {
     "id": "rex121",
@@ -442,7 +442,7 @@
       "Mn": 0.35,
       "Si": 0.35
     },
-    "process": "Crucible Particle Metallurgy (CPM). A cobalt-bearing high-speed tool steel designed to bridge the gap between high-alloy tool steels and cemented carbides. It offers the highest wear resistance and attainable hardness of any powder metallurgy steel currently available."
+    "details": "Crucible Particle Metallurgy (CPM). A cobalt-bearing high-speed tool steel designed to bridge the gap between high-alloy tool steels and cemented carbides. It offers the highest wear resistance and attainable hardness of any powder metallurgy steel currently available."
   },
   {
     "id": "s10v",
@@ -460,7 +460,7 @@
       "Mn": 0.50,
       "Si": 0.90
     },
-    "process": "Crucible Particle Metallurgy (CPM) process. Designed for extreme wear resistance in industrial tooling and high-end custom cutting tools."
+    "details": "Crucible Particle Metallurgy (CPM) process. Designed for extreme wear resistance in industrial tooling and high-end custom cutting tools."
   },
   {
     "id": "cpm-s30v",
@@ -476,7 +476,7 @@
       "Mo": 2.0,
       "V": 4.0
     },
-    "process": "Powder Metallurgy by Crucible. The first steel ever developed specifically for the cutlery industry, balancing edge holding and corrosion resistance."
+    "details": "Powder Metallurgy by Crucible. The first steel ever developed specifically for the cutlery industry, balancing edge holding and corrosion resistance."
   },
   {
     "id": "cpm-s35vn",
@@ -493,7 +493,7 @@
       "V": 3.0,
       "Nb": 0.5
     },
-    "process": "Powder Metallurgy by Crucible. An evolution of S30V that adds Niobium to make the steel tougher and easier for manufacturers to grind and polish."
+    "details": "Powder Metallurgy by Crucible. An evolution of S30V that adds Niobium to make the steel tougher and easier for manufacturers to grind and polish."
   },
   {
     "id": "cpm-s45vn",
@@ -511,7 +511,7 @@
       "Nb": 0.5,
       "N": 0.15
     },
-    "process": "Powder Metallurgy by Crucible. A further refinement of S35VN with increased Chromium and Nitrogen to push corrosion resistance into the elite category."
+    "details": "Powder Metallurgy by Crucible. A further refinement of S35VN with increased Chromium and Nitrogen to push corrosion resistance into the elite category."
   },
   {
     "id": "cpm-s90v",
@@ -527,7 +527,7 @@
       "V": 9.0,
       "Mo": 1.0
     },
-    "process": "Powder Metallurgy by Crucible. High vanadium content creates extremely hard carbides. It is considered one of the kings of long-term edge retention."
+    "details": "Powder Metallurgy by Crucible. High vanadium content creates extremely hard carbides. It is considered one of the kings of long-term edge retention."
   },
   {
     "id": "s110v",
@@ -545,7 +545,7 @@
       "Nb": 3.0,
       "Co": 2.5
     },
-    "process": "Powder Metallurgy by Crucible. One of the most alloy-rich steels available. It uses Niobium and Vanadium to create an edge that lasts almost indefinitely."
+    "details": "Powder Metallurgy by Crucible. One of the most alloy-rich steels available. It uses Niobium and Vanadium to create an edge that lasts almost indefinitely."
   },
   {
     "id": "cts-bd1n",
@@ -564,7 +564,7 @@
       "Mo": 0.30,
       "V": 0.10
     },
-    "process": "Vacuum Melted stainless steel by Carpenter Technology. The 'N' signifies the addition of Nitrogen, which increases hardness and corrosion resistance without making the steel brittle."
+    "details": "Vacuum Melted stainless steel by Carpenter Technology. The 'N' signifies the addition of Nitrogen, which increases hardness and corrosion resistance without making the steel brittle."
   },
   {
     "id": "cts-xhp",
@@ -580,7 +580,7 @@
       "Mo": 0.8,
       "V": 0.45
     },
-    "process": "Powder Metallurgy by Carpenter. Often described as 'Stainless D2,' it offers the edge retention of a tool steel with the stain resistance of a stainless steel."
+    "details": "Powder Metallurgy by Carpenter. Often described as 'Stainless D2,' it offers the edge retention of a tool steel with the stain resistance of a stainless steel."
   },
   {
     "id": "d2",
@@ -596,7 +596,7 @@
       "Mo": 0.8,
       "V": 0.9
     },
-    "process": "Ingot Metallurgy. A semi-stainless tool steel. Its large carbides make it a 'toothy' cutter, but it requires oil to prevent rust."
+    "details": "Ingot Metallurgy. A semi-stainless tool steel. Its large carbides make it a 'toothy' cutter, but it requires oil to prevent rust."
   },
   {
     "id": "elmax",
@@ -612,7 +612,7 @@
       "Mo": 1.0,
       "V": 3.0
     },
-    "process": "Powder Metallurgy by Böhler. A high-performance European steel known for its high purity and the ability to hold a very fine, polished edge."
+    "details": "Powder Metallurgy by Böhler. A high-performance European steel known for its high purity and the ability to hold a very fine, polished edge."
   },
   {
     "id": "k110",
@@ -628,7 +628,7 @@
       "Mo": 0.7,
       "V": 1.0
     },
-    "process": "Ingot Metallurgy by Böhler. This is essentially a high-quality, refined version of D2 tool steel produced in Europe."
+    "details": "Ingot Metallurgy by Böhler. This is essentially a high-quality, refined version of D2 tool steel produced in Europe."
   },
   {
     "id": "k390",
@@ -645,7 +645,7 @@
       "V": 9.0,
       "Co": 2.0
     },
-    "process": "Powder Metallurgy by Böhler. An industrial cold-work tool steel that has become a legend for having incredible edge retention while remaining reasonably tough."
+    "details": "Powder Metallurgy by Böhler. An industrial cold-work tool steel that has become a legend for having incredible edge retention while remaining reasonably tough."
   },
   {
     "id": "l220c",
@@ -660,7 +660,7 @@
       "Cr": 0.7,
       "V": 0.1
     },
-    "process": "Ingot Metallurgy. A high-carbon silver steel variant. It is simple, clean, and often used in traditional or European-style working knives."
+    "details": "Ingot Metallurgy. A high-carbon silver steel variant. It is simple, clean, and often used in traditional or European-style working knives."
   },
   {
     "id": "lc200n",
@@ -677,7 +677,7 @@
       "N": 0.5,
       "V": 0.1
     },
-    "process": "PESR (Pressurized Electroslag Remelting). A nitrogen-based steel that is virtually rust-proof; it replaces carbon with nitrogen to prevent corrosion."
+    "details": "PESR (Pressurized Electroslag Remelting). A nitrogen-based steel that is virtually rust-proof; it replaces carbon with nitrogen to prevent corrosion."
   },
   {
     "id": "m390",
@@ -694,7 +694,7 @@
       "V": 4.0,
       "W": 0.6
     },
-    "process": "Powder Metallurgy (Microclean) by Böhler. Widely considered one of the best all-around super steels for high-end 'jewelry' and EDC knives."
+    "details": "Powder Metallurgy (Microclean) by Böhler. Widely considered one of the best all-around super steels for high-end 'jewelry' and EDC knives."
   },
   {
     "id": "m398",
@@ -713,7 +713,7 @@
       "Si": 0.50,
       "Mn": 0.50
     },
-    "process": "A powder metallurgy evolution of M390 by Böhler. By increasing Carbon and Vanadium, Böhler achieved a carbide volume of approx. 30%, resulting in extreme wear resistance and a potential hardness of 63-66 HRC."
+    "details": "A powder metallurgy evolution of M390 by Böhler. By increasing Carbon and Vanadium, Böhler achieved a carbide volume of approx. 30%, resulting in extreme wear resistance and a potential hardness of 63-66 HRC."
   },
   {
     "id": "magnacut",
@@ -730,7 +730,7 @@
       "V": 4.0,
       "N": 0.2
     },
-    "process": "Powder Metallurgy by Crucible. A breakthrough steel designed by Dr. Larrin Thomas to eliminate large Chromium carbides, resulting in extreme toughness and stainlessness."
+    "details": "Powder Metallurgy by Crucible. A breakthrough steel designed by Dr. Larrin Thomas to eliminate large Chromium carbides, resulting in extreme toughness and stainlessness."
   },
   {
     "id": "maxamet",
@@ -747,7 +747,7 @@
       "V": 6.0,
       "W": 13.0
     },
-    "process": "Powder Metallurgy by Carpenter. A super-hard tool steel that borders on cemented carbide. It is extremely difficult to work with but holds an edge for ages."
+    "details": "Powder Metallurgy by Carpenter. A super-hard tool steel that borders on cemented carbide. It is extremely difficult to work with but holds an edge for ages."
   },
   {
     "id": "n690",
@@ -764,7 +764,7 @@
       "V": 0.1,
       "Co": 1.5
     },
-    "process": "Ingot Metallurgy by Böhler. A cobalt-enriched stainless steel from Austria. It is very popular with European makers for its ease of sharpening and high polish."
+    "details": "Ingot Metallurgy by Böhler. A cobalt-enriched stainless steel from Austria. It is very popular with European makers for its ease of sharpening and high polish."
   },
   {
     "id": "nitro-v",
@@ -780,7 +780,7 @@
       "N": 0.1,
       "V": 0.07
     },
-    "process": "Ingot Metallurgy. An evolution of AEB-L that adds Nitrogen and Vanadium to improve corrosion resistance and edge stability."
+    "details": "Ingot Metallurgy. An evolution of AEB-L that adds Nitrogen and Vanadium to improve corrosion resistance and edge stability."
   },
   {
     "id": "nitro-x7",
@@ -799,7 +799,7 @@
       "Si": 0.40,
       "V": 0.15
     },
-    "process": "A high-tech nitrogen-alloyed stainless steel by Buderus Edelstahl. It utilizes a fine-grained 'Nitro-Concept' to achieve edge stability and hardness (up to 64 HRC) that rivals powder metallurgy steels without the PM price tag."
+    "details": "A high-tech nitrogen-alloyed stainless steel by Buderus Edelstahl. It utilizes a fine-grained 'Nitro-Concept' to achieve edge stability and hardness (up to 64 HRC) that rivals powder metallurgy steels without the PM price tag."
   },
   {
     "id": "sg2",
@@ -815,7 +815,7 @@
       "Mo": 3.0,
       "V": 2.0
     },
-    "process": "Powder Metallurgy by Takefu Special Steel. A high-carbon stainless steel that is the benchmark for high-end Japanese kitchen knives, offering a refined grain structure and exceptional edge life."
+    "details": "Powder Metallurgy by Takefu Special Steel. A high-carbon stainless steel that is the benchmark for high-end Japanese kitchen knives, offering a refined grain structure and exceptional edge life."
   },
   {
     "id": "vanax",
@@ -832,7 +832,7 @@
       "V": 3.5,
       "N": 1.55
     },
-    "process": "Powder Metallurgy by Uddeholm. A 'Super-Stainless' steel where Nitrogen almost entirely replaces Carbon, making it immune to salt-water rust."
+    "details": "Powder Metallurgy by Uddeholm. A 'Super-Stainless' steel where Nitrogen almost entirely replaces Carbon, making it immune to salt-water rust."
   },
   {
     "id": "vg10",
@@ -849,6 +849,6 @@
       "V": 0.2,
       "Co": 1.5
     },
-    "process": "Ingot Metallurgy by Takefu. Known as 'Gold Steel' in Japan, it is a high-standard stainless that is world-famous for its use in professional kitchen cutlery."
+    "details": "Ingot Metallurgy by Takefu. Known as 'Gold Steel' in Japan, it is a high-standard stainless that is world-famous for its use in professional kitchen cutlery."
   }
 ]
