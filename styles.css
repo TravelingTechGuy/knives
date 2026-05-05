@@ -48,6 +48,19 @@ header {
   position: relative;
 }
 
+h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  cursor: crosshair;
+  pointer-events: all;
+}
+
 .header-controls {
   position: absolute;
   top: 10px;
@@ -80,19 +93,6 @@ header {
 /* Light theme - show moon icon */
 [data-theme="light"] .theme-toggle-btn {
   background-image: url('icons/icon-moon.svg');
-}
-
-h2 {
-  margin: 0 0 15px 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-canvas {
-  display: block;
-  max-width: 100%;
-  cursor: crosshair;
-  pointer-events: all;
 }
 
 .title-icon {
