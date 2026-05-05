@@ -211,7 +211,7 @@ canvas {
   .search-wrapper { padding: 2px 6px 2px 12px; }
   #steel-search { font-size: 0.9rem; }
   .database-info { flex-direction: column; gap: 10px; }
-  .title-icon-mirrored {
+  .mobile-hide {
     display: none;
   }
   .header-controls {
