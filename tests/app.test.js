@@ -19,7 +19,7 @@ const setupDOM = () => {
 beforeEach(async () => {
   setupDOM();
   // Provide minimal canvas getContext and Chart mock for jsdom tests
-  if (typeof HTMLCanvasElement !== 'undefined' && !HTMLCanvasElement.prototype.getContext) {
+  if (typeof HTMLCanvasElement !== 'undefined') {
     // ensure canvases return a dummy 2D context
     HTMLCanvasElement.prototype.getContext = function () {
       return {
