@@ -18,30 +18,6 @@ const setupDOM = () => {
 
 beforeEach(async () => {
   setupDOM();
-  // Provide minimal canvas getContext and Chart mock for jsdom tests
-  if (typeof HTMLCanvasElement !== 'undefined') {
-    // ensure canvases return a dummy 2D context
-    HTMLCanvasElement.prototype.getContext = function () {
-      return {
-        fillRect: () => {},
-        clearRect: () => {},
-        getImageData: () => ({ data: [] }),
-        putImageData: () => {},
-        createImageData: () => [],
-        setTransform: () => {},
-        drawImage: () => {},
-        save: () => {},
-        fillText: () => {},
-        measureText: () => ({ width: 0 }),
-        transform: () => {},
-        rotate: () => {},
-        translate: () => {},
-        scale: () => {},
-        restore: () => {}
-      };
-    };
-  }
-
   // Minimal Chart mock so initChart can construct without Chart.js
   globalThis.Chart = class {
     constructor(ctx, cfg) {
