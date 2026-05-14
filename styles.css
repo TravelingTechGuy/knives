@@ -342,8 +342,8 @@ canvas {
   width: 20px;
   height: 20px;
   background-color: currentColor;
-  mask: url('icons/info.svg') no-repeat center;
-  -webkit-mask: url('icons/info.svg') no-repeat center;
+  mask: url('icons/icon-info.svg') no-repeat center;
+  -webkit-mask: url('icons/icon-info.svg') no-repeat center;
   mask-size: contain;
   -webkit-mask-size: contain;
 }
