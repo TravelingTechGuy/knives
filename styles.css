@@ -313,6 +313,10 @@ canvas {
   margin-bottom: 10px;
 }
 
+.card-title {
+  margin-top: 0;
+}
+
 /* Move the badge inside the header for better alignment */
 .card .badge {
   position: static; /* Overriding your absolute positioning */
@@ -332,6 +336,16 @@ canvas {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.info-icon {
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask: url('icons/info.svg') no-repeat center;
+  -webkit-mask: url('icons/info.svg') no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
 }
 
 /* Update hover state to use the tier color */

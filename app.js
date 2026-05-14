@@ -355,10 +355,10 @@ const renderCards = () => {
       <div class="card-header">
         <span class="badge tier-${steel.tier.toLowerCase().replace(' ', '-')}">${steel.tier}</span>
         <button class="info-btn" data-tooltip="More Info">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <span class="info-icon"></span>
         </button>
       </div>
-      <h2 style="margin-top: 0;">${steel.name}</h2>
+      <h2 class="card-title">${steel.name}</h2>
       <canvas id="chart-${steel.id}"></canvas>
       ${createMetallurgyHTML(steel)}
     `;
