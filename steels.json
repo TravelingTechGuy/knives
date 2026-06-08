@@ -648,6 +648,45 @@
     "details": "Powder Metallurgy by Böhler. An industrial cold-work tool steel that has become a legend for having incredible edge retention while remaining reasonably tough."
   },
   {
+    "id": "h1",
+    "name": "H1",
+    "tier": "Premium",
+    "toughness": 7,
+    "corrosion": 10,
+    "retention": 3,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.15,
+      "Cr": 14.50,
+      "Ni": 7.00,
+      "Mo": 1.00,
+      "Mn": 1.00,
+      "Si": 3.50,
+      "N": 0.10
+    },
+    "details": "Austenitic Stainless Steel by Myodo Metals. Famous for being virtually rustproof and work-hardening during the grinding process. It was the original steel used in the Spyderco Salt series, offering extreme corrosion resistance but relatively low edge retention on plain edges."
+  },
+  {
+    "id": "h2",
+    "name": "H2",
+    "tier": "Premium",
+    "toughness": 7,
+    "corrosion": 10,
+    "retention": 4,
+    "sharpening": 9,
+    "composition": {
+      "C": 0.09,
+      "Cr": 13.73,
+      "Mo": 2.24,
+      "Ni": 8.25,
+      "Mn": 0.32,
+      "Si": 2.63,
+      "N": 0.06,
+      "Cu": 0.17
+    },
+    "details": "Austenitic Stainless Steel by Myodo Metals. The direct successor to H1 steel. It refines the original chemistry—lowering Carbon and Chromium while significantly increasing Molybdenum and Nickel—to maintain extreme rustproof qualities while improving manufacturability and offering slightly better edge retention."
+  },
+  {
     "id": "l220c",
     "name": "L220C",
     "tier": "Budget",
@@ -750,6 +789,23 @@
     "details": "Powder Metallurgy by Carpenter. A super-hard tool steel that borders on cemented carbide. It is extremely difficult to work with but holds an edge for ages."
   },
   {
+    "id": "n680",
+    "name": "N680",
+    "tier": "Premium",
+    "toughness": 6,
+    "corrosion": 9,
+    "retention": 4,
+    "sharpening": 7,
+    "composition": {
+      "C": 0.54,
+      "Cr": 17.30,
+      "Mo": 1.10,
+      "V": 0.10,
+      "N": 0.20
+    },
+    "details": "Ingot Metallurgy by Böhler. A nitrogen-alloyed stainless steel specifically designed for highly corrosive environments, like salt water. It trades some edge retention for extreme rust resistance and excellent toughness."
+  },
+  {
     "id": "n690",
     "name": "N690",
     "tier": "Premium",
@@ -802,6 +858,41 @@
     "details": "A high-tech nitrogen-alloyed stainless steel by Buderus Edelstahl. It utilizes a fine-grained 'Nitro-Concept' to achieve edge stability and hardness (up to 64 HRC) that rivals powder metallurgy steels without the PM price tag."
   },
   {
+    "id": "o1",
+    "name": "O1",
+    "tier": "Budget",
+    "toughness": 5,
+    "corrosion": 1,
+    "retention": 4,
+    "sharpening": 8,
+    "composition": {
+      "C": 0.90,
+      "Mn": 1.20,
+      "Cr": 0.50,
+      "W": 0.50,
+      "V": 0.20
+    },
+    "details": "Ingot Metallurgy. A classic oil-hardening tool steel favored by custom makers and bushcrafters for its ease of sharpening and excellent fine edge, though it is highly susceptible to rust without care."
+  },
+  {
+    "id": "rwl34",
+    "name": "RWL34",
+    "tier": "Premium",
+    "toughness": 5,
+    "corrosion": 7,
+    "retention": 6,
+    "sharpening": 6,
+    "composition": {
+      "C": 1.05,
+      "Cr": 14.00,
+      "Mo": 4.00,
+      "V": 0.20,
+      "Mn": 0.50,
+      "Si": 0.50
+    },
+    "details": "Powder Metallurgy by Damasteel. Named after Bob Loveless, it is essentially a powder metallurgy version of ATS-34/154CM. It offers exceptional purity, takes a mirror polish easily, and provides a great balance of edge retention and corrosion resistance."
+  },
+  {
     "id": "sg2",
     "name": "SG2 / R2",
     "tier": "Super Steel",
@@ -836,7 +927,7 @@
   },
   {
     "id": "vg10",
-    "name": "VG10",
+    "name": "VG-10",
     "tier": "Premium",
     "toughness": 4,
     "corrosion": 7,
@@ -850,5 +941,22 @@
       "Co": 1.5
     },
     "details": "Ingot Metallurgy by Takefu. Known as 'Gold Steel' in Japan, it is a high-standard stainless that is world-famous for its use in professional kitchen cutlery."
+  },
+  {
+    "id": "zdp-189",
+    "name": "ZDP-189",
+    "tier": "Super Steel",
+    "toughness": 2,
+    "corrosion": 4,
+    "retention": 9,
+    "sharpening": 1,
+    "composition": {
+      "C": 3.00,
+      "Cr": 20.00,
+      "Mo": 1.40,
+      "V": 0.10,
+      "W": 0.60
+    },
+    "details": "Powder Metallurgy by Hitachi. Known for its massive 3% carbon content allowing extreme hardness (up to 67 HRC). It holds a razor edge for a very long time but is prone to chipping and is notoriously difficult to sharpen."
   }
 ]
