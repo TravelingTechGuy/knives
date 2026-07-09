@@ -772,6 +772,24 @@
     "details": "Powder Metallurgy by Crucible. A breakthrough steel designed by Dr. Larrin Thomas to eliminate large Chromium carbides, resulting in extreme toughness and stainlessness."
   },
   {
+    "id": "magnamax",
+    "name": "MagnaMax",
+    "tier": "Super Steel",
+    "toughness": 5,
+    "corrosion": 10,
+    "retention": 10,
+    "sharpening": 2,
+    "composition": {
+      "C": 2.06,
+      "Cr": 10.3,
+      "Mo": 1.88,
+      "V": 7.29,
+      "Nb": 2.63,
+      "N": 0.2
+    },
+    "details": "Powder Metallurgy by Crucible. Developed by Dr. Larrin Thomas as a high-wear-resistance sibling to MagnaCut. It doubles the carbide volume to achieve edge retention comparable to K390 or CPM 10V, while maintaining excellent corrosion resistance."
+  },
+  {
     "id": "maxamet",
     "name": "Maxamet",
     "tier": "Super Steel",
