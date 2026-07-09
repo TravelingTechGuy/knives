@@ -775,7 +775,7 @@
     "id": "magnamax",
     "name": "MagnaMax",
     "tier": "Super Steel",
-    "toughness": 5,
+    "toughness": 6,
     "corrosion": 10,
     "retention": 10,
     "sharpening": 2,
