@@ -356,6 +356,24 @@
     "details": "Powder Metallurgy by Crucible. Uses the exact chemistry of 154CM but processed into powder to create much smaller carbides and significantly higher toughness."
   },
   {
+    "id": "cpm-15v",
+    "name": "CPM-15V",
+    "tier": "Super Steel",
+    "toughness": 4,
+    "corrosion": 2,
+    "retention": 10,
+    "sharpening": 1,
+    "composition": {
+      "C": 3.40,
+      "V": 14.50,
+      "Cr": 5.25,
+      "Mo": 1.30,
+      "Mn": 0.50,
+      "Si": 0.90
+    },
+    "details": "Crucible Particle Metallurgy (CPM). An ultra-high wear resistance cold-work tool steel containing nearly 15% vanadium. Celebrated in high-end sprint runs and custom cutlery for possessing some of the highest edge retention attainable in knife steel."
+  },
+  {
     "id": "20cv",
     "name": "CPM-20CV",
     "tier": "Super Steel",
@@ -408,6 +426,24 @@
     "details": "Powder Metallurgy by Crucible. An air-hardening tool steel designed to bridge the gap between toughness-focused steels and wear-resistance steels."
   },
   {
+    "id": "cpm-d2",
+    "name": "CPM-D2",
+    "tier": "Premium",
+    "toughness": 6,
+    "corrosion": 2,
+    "retention": 6,
+    "sharpening": 5,
+    "composition": {
+      "C": 1.50,
+      "Cr": 12.0,
+      "Mo": 0.8,
+      "V": 0.9,
+      "Mn": 0.50,
+      "Si": 0.40
+    },
+    "details": "Crucible Particle Metallurgy (CPM). A powder metallurgy version of classic D2 tool steel. The CPM process produces a very fine, uniform carbide structure that significantly improves toughness, edge stability, and ease of sharpening over conventional ingot D2 while retaining high wear resistance."
+  },
+  {
     "id": "cpm-m4",
     "name": "CPM-M4",
     "tier": "Premium",
@@ -443,6 +479,26 @@
       "Si": 0.35
     },
     "details": "Crucible Particle Metallurgy (CPM). A cobalt-bearing high-speed tool steel designed to bridge the gap between high-alloy tool steels and cemented carbides. It offers the highest wear resistance and attainable hardness of any powder metallurgy steel currently available."
+  },
+  {
+    "id": "cpm-rex45",
+    "name": "CPM-REX45",
+    "tier": "Super Steel",
+    "toughness": 5,
+    "corrosion": 2,
+    "retention": 9,
+    "sharpening": 3,
+    "composition": {
+      "C": 1.30,
+      "W": 6.25,
+      "Mo": 5.00,
+      "V": 3.05,
+      "Co": 8.00,
+      "Cr": 4.05,
+      "Mn": 0.30,
+      "Si": 0.45
+    },
+    "details": "Crucible Particle Metallurgy (CPM). A cobalt-bearing high-speed tool steel equivalent to Hitachi HAP40. Capable of heat treatment up to 66-68 HRC, it provides outstanding wear resistance, hot hardness, and edge stability while maintaining respectable toughness for its hardness class."
   },
   {
     "id": "s10v",
