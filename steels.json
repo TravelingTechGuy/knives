@@ -811,8 +811,8 @@
     "details": "A powder metallurgy evolution of M390 by Böhler. By increasing Carbon and Vanadium, Böhler achieved a carbide volume of approx. 30%, resulting in extreme wear resistance and a potential hardness of 63-66 HRC."
   },
   {
-    "id": "magnacut",
-    "name": "MagnaCut",
+    "id": "cpm-magnacut",
+    "name": "CPM-MagnaCut",
     "tier": "Super Steel",
     "toughness": 7,
     "corrosion": 10,
@@ -828,8 +828,8 @@
     "details": "Powder Metallurgy by Crucible. A breakthrough steel designed by Dr. Larrin Thomas to eliminate large Chromium carbides, resulting in extreme toughness and stainlessness."
   },
   {
-    "id": "magnamax",
-    "name": "MagnaMax",
+    "id": "cpm-magnamax",
+    "name": "CPM-MagnaMax",
     "tier": "Super Steel",
     "toughness": 6,
     "corrosion": 10,
