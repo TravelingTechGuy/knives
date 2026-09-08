@@ -374,7 +374,7 @@
     "details": "Crucible Particle Metallurgy (CPM). An ultra-high wear resistance cold-work tool steel containing nearly 15% vanadium. Celebrated in high-end sprint runs and custom cutlery for possessing some of the highest edge retention attainable in knife steel."
   },
   {
-    "id": "20cv",
+    "id": "cpm-20cv",
     "name": "CPM-20CV",
     "tier": "Super Steel",
     "toughness": 3,
@@ -409,7 +409,7 @@
     "details": "Crucible Particle Metallurgy (CPM) tool steel designed to provide maximum resistance to breakage and chipping. It approaches the impact toughness of S7 shock steel while maintaining wear resistance similar to D2."
   },
   {
-    "id": "cruwear",
+    "id": "cpm-cruwear",
     "name": "CPM-CruWear",
     "tier": "Premium",
     "toughness": 8,
@@ -461,8 +461,8 @@
     "details": "Powder Metallurgy by Crucible. A high-speed tool steel with very high Tungsten and Vanadium. It is a favorite for competitive cutting due to its impact resistance."
   },
   {
-    "id": "rex121",
-    "name": "CPM-Rex121",
+    "id": "cpm-rex121",
+    "name": "CPM-REX121",
     "tier": "Super Steel",
     "toughness": 2,
     "corrosion": 3,
@@ -501,7 +501,7 @@
     "details": "Crucible Particle Metallurgy (CPM). A cobalt-bearing high-speed tool steel equivalent to Hitachi HAP40. Capable of heat treatment up to 66-68 HRC, it provides outstanding wear resistance, hot hardness, and edge stability while maintaining respectable toughness for its hardness class."
   },
   {
-    "id": "s10v",
+    "id": "cpm-s10v",
     "name": "CPM-S10V",
     "tier": "Super Steel",
     "toughness": 4,
@@ -586,7 +586,7 @@
     "details": "Powder Metallurgy by Crucible. High vanadium content creates extremely hard carbides. It is considered one of the kings of long-term edge retention."
   },
   {
-    "id": "s110v",
+    "id": "cpm-s110v",
     "name": "CPM-S110V",
     "tier": "Super Steel",
     "toughness": 2,
