@@ -320,10 +320,13 @@ const renderCards = () => {
     });
 
     // Must match AT LEAST ONE text criteria (Name or Tier)
-    const matchesText = textFilters.length === 0 || textFilters.some(term =>
-      steel.name.toLowerCase().includes(term) ||
-      steel.tier.toLowerCase().includes(term)
-    );
+    const matchesText = textFilters.length === 0 || textFilters.some(term => {
+      const cleanTerm = term.replace(/[-\s]/g, '');
+      const cleanName = steel.name.toLowerCase().replace(/[-\s]/g, '');
+      return steel.name.toLowerCase().includes(term) ||
+        steel.tier.toLowerCase().includes(term) ||
+        (cleanTerm && (cleanName.includes(cleanTerm) || steel.id.toLowerCase().replace(/[-\s]/g, '').includes(cleanTerm)));
+    });
 
     return matchesMath && matchesText;
   });

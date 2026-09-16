@@ -89,4 +89,49 @@ describe('App main functionality', () => {
     infoBtn.click();
     expect(metallurgy.classList.contains('active')).toBe(false);
   });
+
+  it('finds ATS-34 by exact name or variation with space', () => {
+    const search = document.getElementById('steel-search');
+    const grid = document.getElementById('steel-grid');
+
+    search.value = 'ATS 34';
+    app.renderCards();
+    expect(grid.children.length).toBe(1);
+    expect(grid.children[0].querySelector('h2').textContent).toBe('ATS-34');
+
+    search.value = 'ATS-34';
+    app.renderCards();
+    expect(grid.children.length).toBe(1);
+    expect(grid.children[0].querySelector('h2').textContent).toBe('ATS-34');
+  });
+
+  it('finds RWL-34 by exact name, variation with space, or unhyphenated', () => {
+    const search = document.getElementById('steel-search');
+    const grid = document.getElementById('steel-grid');
+
+    search.value = 'RWL 34';
+    app.renderCards();
+    expect(grid.children.length).toBe(1);
+    expect(grid.children[0].querySelector('h2').textContent).toBe('RWL-34');
+
+    search.value = 'RWL-34';
+    app.renderCards();
+    expect(grid.children.length).toBe(1);
+    expect(grid.children[0].querySelector('h2').textContent).toBe('RWL-34');
+
+    search.value = 'RWL34';
+    app.renderCards();
+    expect(grid.children.length).toBe(1);
+    expect(grid.children[0].querySelector('h2').textContent).toBe('RWL-34');
+  });
+
+  it('finds 19C27 by search term', () => {
+    const search = document.getElementById('steel-search');
+    const grid = document.getElementById('steel-grid');
+
+    search.value = '19C27';
+    app.renderCards();
+    expect(grid.children.length).toBe(1);
+    expect(grid.children[0].querySelector('h2').textContent).toBe('19C27');
+  });
 });
