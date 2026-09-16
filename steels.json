@@ -161,6 +161,22 @@
     "details": "Ingot Metallurgy. Originally developed for jet engine valves, it adds Molybdenum to a 440C base to improve edge retention and toughness."
   },
   {
+    "id": "19c27",
+    "name": "19C27",
+    "tier": "Budget",
+    "toughness": 5,
+    "corrosion": 6,
+    "retention": 5,
+    "sharpening": 8,
+    "composition": {
+      "C": 0.95,
+      "Cr": 13.5,
+      "Mn": 0.70,
+      "Si": 0.40
+    },
+    "details": "Ingot Metallurgy by Sandvik. Sandvik's highest-carbon conventional knife steel, engineered for superior wear resistance and edge holding in high-wear cutting applications while maintaining good corrosion resistance and fine polishability."
+  },
+  {
     "id": "420hc",
     "name": "420HC",
     "tier": "Budget",
@@ -308,6 +324,23 @@
       "Co": 0.1
     },
     "details": "Powder Metallurgy. A unique budget PM steel developed for Artisan Cutlery. It provides the clean structure of powder steel at an entry-level price point."
+  },
+  {
+    "id": "ats-34",
+    "name": "ATS-34",
+    "tier": "Premium",
+    "toughness": 4,
+    "corrosion": 7,
+    "retention": 5,
+    "sharpening": 7,
+    "composition": {
+      "C": 1.05,
+      "Cr": 14.00,
+      "Mo": 4.00,
+      "Mn": 0.40,
+      "Si": 0.35
+    },
+    "details": "Ingot Metallurgy by Hitachi. A Japanese high-carbon stainless steel developed as an equivalent to 154CM. Popularized by legendary custom knifemaker Bob Loveless, it adds Molybdenum to improve hardness, edge retention, and corrosion resistance over standard 440C."
   },
   {
     "id": "aus8",
@@ -949,8 +982,8 @@
     "details": "Ingot Metallurgy. A classic oil-hardening tool steel favored by custom makers and bushcrafters for its ease of sharpening and excellent fine edge, though it is highly susceptible to rust without care."
   },
   {
-    "id": "rwl34",
-    "name": "RWL34",
+    "id": "rwl-34",
+    "name": "RWL-34",
     "tier": "Premium",
     "toughness": 5,
     "corrosion": 7,
